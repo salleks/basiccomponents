@@ -1,0 +1,13 @@
+
+.hw-component-div {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+
+  .hw-component {
+    display: inline-flex;
+    width: 48%;
+  }
+}
+
+

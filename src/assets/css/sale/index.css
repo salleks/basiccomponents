@@ -1,0 +1,18 @@
+.hw-price-total-root {
+  display: flex;
+  align-items: center; }
+  .hw-price-total-root > div {
+    text-align: center;
+    flex: 0.3; }
+    .hw-price-total-root > div:nth-child(2) {
+      flex: 4; }
+  .hw-price-total-root .hw-price-total-div {
+    display: flex;
+    flex-direction: column; }
+    .hw-price-total-root .hw-price-total-div .hw-price {
+      font-size: 11px; }
+    .hw-price-total-root .hw-price-total-div .hw-price {
+      font-size: 14px;
+      text-transform: uppercase; }
+
+/*# sourceMappingURL=index.css.map */

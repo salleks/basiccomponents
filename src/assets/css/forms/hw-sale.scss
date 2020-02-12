@@ -1,0 +1,79 @@
+@import '../hw/hw-themes';
+@import '../hw/hw-mixin';
+
+
+
+
+.hw-grid {
+  .hw-grid-row {
+    > div {
+      padding:4px;
+      &:first-child {
+        flex: 0.3;
+      }
+      &:nth-child(2) {
+        flex: 1.2;
+      }
+      &:nth-child(4) {
+        flex: 0.5;
+      }
+      flex: 0.8;
+    }
+    &.hw-sale-tb-row{
+     >div {
+       &:first-child {
+         flex: 0.3;
+       }
+       &:nth-child(2) {
+         flex: 0.3;
+       }
+       &:nth-child(3) {
+         flex: 1.2;
+       }
+       &:nth-child(5) {
+         flex: 0.5;
+       }
+       flex: 0.8;
+     }
+    }
+
+    &.hw-grid-header {
+      >div{
+        position: relative;
+      }
+      .hw-grid-header-icon {
+        position: absolute;
+        left: 4px;
+        > svg {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+
+.hw-sale-table-root {
+
+  .hw-grid {
+    .hw-grid-row {
+      line-height: 2;
+      position: relative;
+      .hw-sale-table-delete-row {
+        flex: 0;
+        position: absolute;
+        left: -20px;
+        > svg {
+          font-size: 20px;
+          color: theme-var($--color-danger);
+        }
+      }
+    }
+  }
+}
+
+
+.hw-change-quantity-component-root {
+  max-width: 400px;
+
+}

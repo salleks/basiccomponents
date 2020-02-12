@@ -1,0 +1,9 @@
+.hw-component-div {
+  display: flex;
+  width: 100%;
+  justify-content: space-around; }
+  .hw-component-div .hw-component {
+    width: 48%;
+    display: inline-flex; }
+
+/*# sourceMappingURL=component-examples.css.map */

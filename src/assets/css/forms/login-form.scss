@@ -1,0 +1,53 @@
+
+@import '../hw/hw-themes';
+
+$borderColor: #eeee;
+
+.hw-login-root {
+  width: 300px;
+  min-height: 323px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @media screen and (max-width: $c-mobile-version-width) {
+    min-height: 300px;
+  }
+}
+
+.hw-login-forgot-password {
+  margin-top: -15px;
+  text-align: right;
+
+  a {
+    cursor: pointer;
+    font-size: 9px;
+    color: #2e383ee0;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.6px;
+
+    &:hover,
+    &:focus {
+       text-decoration: none;
+      transform: scale(1.9);
+    }
+  }
+}
+
+.hw-login-form-button {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.hw-registration-recaptcha {
+  margin: 0 auto;
+  max-width: 304px;
+  text-align: center;
+}
+
+
+
+
+
+

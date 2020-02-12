@@ -1,0 +1,201 @@
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #111111;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #8e1b22;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%;
+}
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #8e1b22;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+}
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #111111;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #8e1b22;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%;
+}
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #8e1b22;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+}
+
+/*hw colors and shadows start */
+/*hw input start*/
+/*button constants end*/
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #111111;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #8e1b22;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%;
+}
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #8e1b22;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+}
+
+/*hw colors and shadows start */
+/*hw input start*/
+/*button constants end*/
+.hw-label {
+  color: var(--color-primary-font);
+  font-size: 13px;
+  padding: 0 0 4px 4px;
+  margin: 0;
+  height: 14px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.hw-help-text {
+  font-size: calc( 14px *0.7);
+  line-height: 1.3;
+  padding: 2px 0px 1px 8px;
+  overflow: hidden;
+  color: var(--color-help-text);
+}
+
+.full-width {
+  width: 100%;
+}
+
+.error {
+  color: var(--color-error);
+}
+
+.readOnly * {
+  cursor: default;
+  color: var(--color-disabled);
+  opacity: 1;
+}
+
+.disabled {
+  cursor: not-allowed;
+  color: var(--color-disabled);
+  opacity: 1;
+}
+.disabled * {
+  cursor: not-allowed;
+  color: var(--color-disabled);
+  opacity: 1;
+}
+
+.hw-focus {
+  box-shadow: 0 0 0 1px var(--color-primary);
+  outline: none;
+}
+
+.hw-paper {
+  background: -webkit-radial-gradient(center, #f9f9f9, #FFFFFF);
+  background: -moz-radial-gradient(center, #f9f9f9, #FFFFFF);
+  background: radial-gradient(ellipse at center, #f9f9f9, #FFFFFF);
+  padding: 10px 15px 20px;
+  border-radius: 3px;
+  box-shadow: 0px 5px 1px -6px rgba(0, 0, 0, 0.9), 0px 2px 8px 0px rgba(0, 0, 0, 0.14), 0px 2px 3px 0px rgba(0, 0, 0, 0.12);
+}
+.hw-paper .hw-paper-header {
+  box-shadow: 0 4px 5px 0px rgba(0, 0, 0, 0.14), 0 7px 5px -5px #1a2c41;
+  background-color: #175d84;
+  min-width: 120px;
+  position: static;
+  padding: 2px 4px;
+  float: right;
+  margin-right: -30px;
+  text-align: center;
+}
+.hw-paper .hw-paper-header .hw-paper-header-name {
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  text-shadow: 0 1px 1px #000;
+  text-transform: uppercase;
+}
+.hw-paper .hw-paper-body {
+  padding: 35px 10px 10px;
+}
+
+/*# sourceMappingURL=hw-paper.css.map */

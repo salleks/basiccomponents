@@ -1,0 +1,5402 @@
+.hw-input-text-float-root {
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.41;
+  position: relative; }
+  .hw-input-text-float-root .hw-input-text-float {
+    border: 0px;
+    border-bottom: 2px solid #2879ac;
+    box-shadow: 0px 0px 0px transparent;
+    outline: none;
+    margin: 16.8px 0px 1px 12px; }
+    .hw-input-text-float-root .hw-input-text-float:focus {
+      border-bottom-color: #143f5a;
+      box-shadow: 0px 3px 2px -2px #777; }
+  .hw-input-text-float-root .hw-input-label-float {
+    opacity: 0.9;
+    text-shadow: 0.5px 0px 0.5px #444;
+    position: absolute;
+    z-index: 1;
+    transition: all 0.5s;
+    transform: translate(12px, 12px) scale(1); }
+    .hw-input-text-float-root .hw-input-label-float.focused {
+      transform: translate(12px, 0px) scale(0.75); }
+  .hw-input-text-float-root .hw-input-help-error-text-float {
+    font-size: 11.2px;
+    opacity: 0.8;
+    margin: 2px 0px 2px 16px;
+    overflow: hidden; }
+  .hw-input-text-float-root.error .hw-input-help-error-text-float,
+  .hw-input-text-float-root.error .hw-input-label-float {
+    color: #8a181c; }
+  .hw-input-text-float-root.error .hw-input-text-float {
+    color: #b52025;
+    border-bottom-color: #8a181c; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*hw colors and shadows start */
+/*hw input start*/
+/*button constants end*/
+/*@mixin default-application-gradient{
+  background: #6d6e6d;
+  background: -moz-linear-gradient(top,  #55656b 0%, #2e383ee0 100%);
+  background: -webkit-linear-gradient(top, #55656b 0%,#2e383ee0 100%);
+  background: linear-gradient(to bottom,  #55656b 0%,#2e383ee0 100%);
+}*/
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+.hw-input-text-root {
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.41;
+  position: relative; }
+  .hw-input-text-root .hw-input-group {
+    position: relative; }
+    .hw-input-text-root .hw-input-group .hw-input-icon ~ .hw-input-text {
+      padding-left: 25px; }
+    .hw-input-text-root .hw-input-group .hw-input-icon-action ~ .hw-input-text {
+      padding-right: 30px; }
+    .hw-input-text-root .hw-input-group .hw-input-icon {
+      position: absolute;
+      top: 15px;
+      left: 7px;
+      font-size: 15px;
+      color: var(--prefix-icon-color); }
+    .hw-input-text-root .hw-input-group .hw-input-icon-action {
+      position: absolute;
+      top: 15px;
+      right: 7px;
+      font-size: 15px;
+      color: var(--prefix-icon-color);
+      cursor: pointer; }
+  .hw-input-text-root .hw-input-text {
+    color: var(--color-primary-font);
+    background-clip: padding-box;
+    box-shadow: none;
+    font-size: 16px;
+    width: 100%;
+    height: 44px;
+    padding-left: 4px;
+    padding-right: 4px;
+    border: 1px solid #ced4da;
+    border-radius: 3px; }
+    .hw-input-text-root .hw-input-text.error {
+      border-color: var(--color-error); }
+    .hw-input-text-root .hw-input-text:focus {
+      box-shadow: 0 0 0 1px var(--color-primary);
+      outline: none; }
+  .hw-input-text-root.error .hw-input-text {
+    color: var(--color-error);
+    border-color: var(--color-error); }
+    .hw-input-text-root.error .hw-input-text:focus {
+      box-shadow: 0 0 0 1px var(--color-error); }
+
+.align-left input {
+  text-align: left; }
+
+.large-input-font input {
+  max-width: 200px !important;
+  font-size: 26px !important;
+  height: 60px !important;
+  padding-right: 4px; }
+
+.align-center input {
+  text-align: center; }
+
+.align-right input {
+  text-align: right; }
+
+.hw-input-text-date-picker {
+  position: relative; }
+  .hw-input-text-date-picker .hw-input-text-root.readOnly * {
+    cursor: default;
+    color: inherit;
+    opacity: 1; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*hw colors and shadows start */
+/*hw input start*/
+/*button constants end*/
+/*@mixin default-application-gradient{
+  background: #6d6e6d;
+  background: -moz-linear-gradient(top,  #55656b 0%, #2e383ee0 100%);
+  background: -webkit-linear-gradient(top, #55656b 0%,#2e383ee0 100%);
+  background: linear-gradient(to bottom,  #55656b 0%,#2e383ee0 100%);
+}*/
+.hw-button-root {
+  border: none;
+  color: #fff;
+  background-color: #d7dfe6;
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  vertical-align: middle;
+  text-align: center;
+  padding: 8px 12px;
+  min-width: 120px;
+  font-size: 16px;
+  background: none;
+  line-height: 1.5;
+  border-radius: 3px;
+  color: var(--color-primary-font);
+  box-shadow: 0 4px 6px -6px #000;
+  font-weight: 500; }
+  .hw-button-root .hw-button-text {
+    font-size: 14px;
+    text-shadow: 0 1px 1px #000; }
+  .hw-button-root.outline {
+    background-color: #fff;
+    border: 2px solid #d7dfe6;
+    color: #d7dfe6;
+    text-shadow: none; }
+  .hw-button-root.hw-disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+    border-color: var(--color-disabled);
+    box-shadow: none; }
+    .hw-button-root.hw-disabled:hover {
+      box-shadow: none; }
+  .hw-button-root:hover {
+    box-shadow: 0 6px 6px -6px rgba(75, 75, 75, 0.9), 7px 0 6px -7px rgba(75, 75, 75, 0.9); }
+  @media screen and (max-width: 500px) {
+    .hw-button-root {
+      min-width: 60px; } }
+  .hw-button-root .hw-button-icon {
+    position: absolute;
+    top: 13px;
+    left: 7px;
+    font-size: 14px;
+    color: white; }
+  .hw-button-root.outline {
+    color: var(--color-primary); }
+    .hw-button-root.outline .hw-button-icon {
+      top: 8px;
+      color: var(--color-primary); }
+  .hw-button-root .hw-button-icon-right {
+    position: absolute;
+    top: 13px;
+    right: 7px;
+    font-size: 14px;
+    color: white; }
+  .hw-button-root:focus {
+    outline: none; }
+  .hw-button-root:active {
+    opacity: 0.9;
+    transform: scale(0.98); }
+  .hw-button-root.primary {
+    border: none;
+    color: #fff;
+    background-color: var(--color-primary); }
+    .hw-button-root.primary .hw-button-text {
+      font-size: 14px;
+      text-shadow: 0 1px 1px #000; }
+    .hw-button-root.primary.outline {
+      background-color: #fff;
+      border: 2px solid var(--color-primary);
+      color: var(--color-primary);
+      text-shadow: none; }
+    .hw-button-root.primary.hw-disabled {
+      cursor: not-allowed;
+      opacity: 0.7;
+      border-color: var(--color-disabled);
+      box-shadow: none; }
+      .hw-button-root.primary.hw-disabled:hover {
+        box-shadow: none; }
+    .hw-button-root.primary:hover {
+      box-shadow: 0 6px 6px -6px rgba(75, 75, 75, 0.9), 7px 0 6px -7px rgba(75, 75, 75, 0.9); }
+  .hw-button-root.secondary {
+    border: none;
+    color: #fff;
+    background-color: var(--color-secondary); }
+    .hw-button-root.secondary .hw-button-text {
+      font-size: 14px;
+      text-shadow: 0 1px 1px #000; }
+    .hw-button-root.secondary.outline {
+      background-color: #fff;
+      border: 2px solid var(--color-secondary);
+      color: var(--color-secondary);
+      text-shadow: none; }
+    .hw-button-root.secondary.hw-disabled {
+      cursor: not-allowed;
+      opacity: 0.7;
+      border-color: var(--color-disabled);
+      box-shadow: none; }
+      .hw-button-root.secondary.hw-disabled:hover {
+        box-shadow: none; }
+    .hw-button-root.secondary:hover {
+      box-shadow: 0 6px 6px -6px rgba(75, 75, 75, 0.9), 7px 0 6px -7px rgba(75, 75, 75, 0.9); }
+  .hw-button-root.success {
+    border: none;
+    color: #fff;
+    background-color: #25753a; }
+    .hw-button-root.success .hw-button-text {
+      font-size: 14px;
+      text-shadow: 0 1px 1px #000; }
+    .hw-button-root.success.outline {
+      background-color: #fff;
+      border: 2px solid #25753a;
+      color: #25753a;
+      text-shadow: none; }
+    .hw-button-root.success.hw-disabled {
+      cursor: not-allowed;
+      opacity: 0.7;
+      border-color: var(--color-disabled);
+      box-shadow: none; }
+      .hw-button-root.success.hw-disabled:hover {
+        box-shadow: none; }
+    .hw-button-root.success:hover {
+      box-shadow: 0 6px 6px -6px rgba(75, 75, 75, 0.9), 7px 0 6px -7px rgba(75, 75, 75, 0.9); }
+  .hw-button-root.danger {
+    border: none;
+    color: #fff;
+    background-color: #7c1a1f; }
+    .hw-button-root.danger .hw-button-text {
+      font-size: 14px;
+      text-shadow: 0 1px 1px #000; }
+    .hw-button-root.danger.outline {
+      background-color: #fff;
+      border: 2px solid #7c1a1f;
+      color: #7c1a1f;
+      text-shadow: none; }
+    .hw-button-root.danger.hw-disabled {
+      cursor: not-allowed;
+      opacity: 0.7;
+      border-color: var(--color-disabled);
+      box-shadow: none; }
+      .hw-button-root.danger.hw-disabled:hover {
+        box-shadow: none; }
+    .hw-button-root.danger:hover {
+      box-shadow: 0 6px 6px -6px rgba(75, 75, 75, 0.9), 7px 0 6px -7px rgba(75, 75, 75, 0.9); }
+  .hw-button-root.info {
+    border: none;
+    color: #fff;
+    background-color: #1792a8; }
+    .hw-button-root.info .hw-button-text {
+      font-size: 14px;
+      text-shadow: 0 1px 1px #000; }
+    .hw-button-root.info.outline {
+      background-color: #fff;
+      border: 2px solid #1792a8;
+      color: #1792a8;
+      text-shadow: none; }
+    .hw-button-root.info.hw-disabled {
+      cursor: not-allowed;
+      opacity: 0.7;
+      border-color: var(--color-disabled);
+      box-shadow: none; }
+      .hw-button-root.info.hw-disabled:hover {
+        box-shadow: none; }
+    .hw-button-root.info:hover {
+      box-shadow: 0 6px 6px -6px rgba(75, 75, 75, 0.9), 7px 0 6px -7px rgba(75, 75, 75, 0.9); }
+  .hw-button-root.appDefaultColor {
+    border: none;
+    color: #fff;
+    background-color: #2e383ee0; }
+    .hw-button-root.appDefaultColor .hw-button-text {
+      font-size: 14px;
+      text-shadow: 0 1px 1px #000; }
+    .hw-button-root.appDefaultColor.outline {
+      background-color: #fff;
+      border: 2px solid #2e383ee0;
+      color: #2e383ee0;
+      text-shadow: none; }
+    .hw-button-root.appDefaultColor.hw-disabled {
+      cursor: not-allowed;
+      opacity: 0.7;
+      border-color: var(--color-disabled);
+      box-shadow: none; }
+      .hw-button-root.appDefaultColor.hw-disabled:hover {
+        box-shadow: none; }
+    .hw-button-root.appDefaultColor:hover {
+      box-shadow: 0 6px 6px -6px rgba(75, 75, 75, 0.9), 7px 0 6px -7px rgba(75, 75, 75, 0.9); }
+  .hw-button-root.sm {
+    padding: 4px 8px;
+    font-size: 14px;
+    min-width: 80px; }
+  .hw-button-root.lg {
+    min-width: 150px;
+    padding: 10px 15px; }
+  .hw-button-root.glossy {
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.12) 51%, rgba(0, 0, 0, 0.04)); }
+
+.hw-form-button-root {
+  min-width: 100%; }
+
+.hw-button-action-root {
+  margin: auto;
+  max-width: 200px; }
+  .hw-button-action-root.hw-button-action-space-1 {
+    margin: 3px auto; }
+  .hw-button-action-root.hw-button-action-space-2 {
+    margin: 6px auto; }
+  .hw-button-action-root.hw-button-action-space-3 {
+    margin: 9px auto; }
+  .hw-button-action-root.hw-button-action-space-4 {
+    margin: 12px auto; }
+  .hw-button-action-root.hw-button-action-space-5 {
+    margin: 15px auto; }
+  .hw-button-action-root.hw-button-action-space-6 {
+    margin: 18px auto; }
+  .hw-button-action-root.hw-button-action-space-7 {
+    margin: 21px auto; }
+  .hw-button-action-root.hw-button-action-space-8 {
+    margin: 24px auto; }
+  .hw-button-action-root.hw-button-action-space-9 {
+    margin: 27px auto; }
+  .hw-button-action-root.hw-button-action-space-10 {
+    margin: 30px auto; }
+
+.hw-fab-button-root {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  text-align: center;
+  border-radius: 100%;
+  font-size: 16px;
+  background: none;
+  line-height: 1.5;
+  color: var(--color-primary-font);
+  width: 40px;
+  height: 40px; }
+  .hw-fab-button-root:hover {
+    transform: scale(1.3); }
+  .hw-fab-button-root .hw-button-icon {
+    font-size: 14px;
+    color: white; }
+  .hw-fab-button-root.outline {
+    color: var(--color-primary); }
+    .hw-fab-button-root.outline .hw-button-icon {
+      top: 8px;
+      color: var(--color-primary); }
+  .hw-fab-button-root:focus {
+    outline: none; }
+  .hw-fab-button-root:hover {
+    transform: scale(1.02); }
+  .hw-fab-button-root:active {
+    opacity: 0.9;
+    transform: scale(0.98); }
+  .hw-fab-button-root.primary {
+    border: none;
+    color: #fff;
+    background-color: var(--color-primary); }
+    .hw-fab-button-root.primary .hw-button-text {
+      font-size: 14px;
+      text-shadow: 0 1px 1px #000; }
+    .hw-fab-button-root.primary.outline {
+      background-color: #fff;
+      border: 1px solid var(--color-primary);
+      color: var(--color-primary);
+      text-shadow: none; }
+    .hw-fab-button-root.primary.hw-disabled {
+      cursor: not-allowed;
+      opacity: 0.7;
+      border-color: var(--color-disabled);
+      box-shadow: none; }
+      .hw-fab-button-root.primary.hw-disabled:hover {
+        box-shadow: none; }
+  .hw-fab-button-root.secondary {
+    border: none;
+    color: #fff;
+    background-color: var(--color-secondary); }
+    .hw-fab-button-root.secondary .hw-button-text {
+      font-size: 14px;
+      text-shadow: 0 1px 1px #000; }
+    .hw-fab-button-root.secondary.outline {
+      background-color: #fff;
+      border: 1px solid var(--color-secondary);
+      color: var(--color-secondary);
+      text-shadow: none; }
+    .hw-fab-button-root.secondary.hw-disabled {
+      cursor: not-allowed;
+      opacity: 0.7;
+      border-color: var(--color-disabled);
+      box-shadow: none; }
+      .hw-fab-button-root.secondary.hw-disabled:hover {
+        box-shadow: none; }
+  .hw-fab-button-root.success {
+    border: none;
+    color: #fff;
+    background-color: #25753a; }
+    .hw-fab-button-root.success .hw-button-text {
+      font-size: 14px;
+      text-shadow: 0 1px 1px #000; }
+    .hw-fab-button-root.success.outline {
+      background-color: #fff;
+      border: 1px solid #25753a;
+      color: #25753a;
+      text-shadow: none; }
+    .hw-fab-button-root.success.hw-disabled {
+      cursor: not-allowed;
+      opacity: 0.7;
+      border-color: var(--color-disabled);
+      box-shadow: none; }
+      .hw-fab-button-root.success.hw-disabled:hover {
+        box-shadow: none; }
+  .hw-fab-button-root.danger {
+    border: none;
+    color: #fff;
+    background-color: #7c1a1f; }
+    .hw-fab-button-root.danger .hw-button-text {
+      font-size: 14px;
+      text-shadow: 0 1px 1px #000; }
+    .hw-fab-button-root.danger.outline {
+      background-color: #fff;
+      border: 1px solid #7c1a1f;
+      color: #7c1a1f;
+      text-shadow: none; }
+    .hw-fab-button-root.danger.hw-disabled {
+      cursor: not-allowed;
+      opacity: 0.7;
+      border-color: var(--color-disabled);
+      box-shadow: none; }
+      .hw-fab-button-root.danger.hw-disabled:hover {
+        box-shadow: none; }
+  .hw-fab-button-root.info {
+    border: none;
+    color: #fff;
+    background-color: #1792a8; }
+    .hw-fab-button-root.info .hw-button-text {
+      font-size: 14px;
+      text-shadow: 0 1px 1px #000; }
+    .hw-fab-button-root.info.outline {
+      background-color: #fff;
+      border: 1px solid #1792a8;
+      color: #1792a8;
+      text-shadow: none; }
+    .hw-fab-button-root.info.hw-disabled {
+      cursor: not-allowed;
+      opacity: 0.7;
+      border-color: var(--color-disabled);
+      box-shadow: none; }
+      .hw-fab-button-root.info.hw-disabled:hover {
+        box-shadow: none; }
+  .hw-fab-button-root.appDefaultColor {
+    border: none;
+    color: #fff;
+    background-color: #2e383ee0; }
+    .hw-fab-button-root.appDefaultColor .hw-button-text {
+      font-size: 14px;
+      text-shadow: 0 1px 1px #000; }
+    .hw-fab-button-root.appDefaultColor.outline {
+      background-color: #fff;
+      border: 2px solid #2e383ee0;
+      color: #2e383ee0;
+      text-shadow: none; }
+    .hw-fab-button-root.appDefaultColor.hw-disabled {
+      cursor: not-allowed;
+      opacity: 0.7;
+      border-color: var(--color-disabled);
+      box-shadow: none; }
+      .hw-fab-button-root.appDefaultColor.hw-disabled:hover {
+        box-shadow: none; }
+    .hw-fab-button-root.appDefaultColor:hover {
+      box-shadow: 0 6px 6px -6px rgba(75, 75, 75, 0.9), 7px 0 6px -7px rgba(75, 75, 75, 0.9); }
+  .hw-fab-button-root.sm {
+    font-size: 14px;
+    width: 30px;
+    height: 30px; }
+  .hw-fab-button-root.lg {
+    width: 50px;
+    height: 50px; }
+    .hw-fab-button-root.lg .hw-button-icon {
+      font-size: 18px; }
+  .hw-fab-button-root.glossy {
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.12) 51%, rgba(0, 0, 0, 0.04)); }
+
+.hw-card-info-holder .hw-card {
+  border: 1px solid #eeeeee;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: bold;
+  text-shadow: 0 1px 1px white;
+  color: #495057;
+  outline: none;
+  white-space: nowrap;
+  padding: 30px 15px;
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(14, 14, 14, 0.4);
+  margin-left: 10px; }
+  .hw-card-info-holder .hw-card.hw-card-primary {
+    background-color: #17688f;
+    color: white;
+    border-radius: 3px;
+    border-color: #17688f;
+    text-shadow: 0px 1px 1px black;
+    font-weight: bold; }
+  .hw-card-info-holder .hw-card.hw-card-info {
+    background-color: #1792a8;
+    color: white;
+    border-radius: 3px;
+    border-color: #1792a8;
+    text-shadow: 0px 1px 1px black;
+    font-weight: bold; }
+  .hw-card-info-holder .hw-card.hw-card-danger {
+    background-color: #9e1c23;
+    color: white;
+    border-radius: 3px;
+    border-color: #9e1c23;
+    text-shadow: 0px 1px 1px black;
+    font-weight: bold; }
+  .hw-card-info-holder .hw-card.hw-card-success {
+    background-color: #278943;
+    color: white;
+    border-radius: 3px;
+    border-color: #278943;
+    text-shadow: 0px 1px 1px black;
+    font-weight: bold; }
+
+.hw-select-text-root {
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.41;
+  position: relative;
+  margin-bottom: 15px;
+  margin-top: 35px;
+  min-width: 160px;
+  max-width: 250px; }
+  .hw-select-text-root .hw-select-label {
+    margin-left: 4px;
+    color: #495057; }
+  .hw-select-text-root .hw-select-help-text {
+    font-size: 12.4px;
+    opacity: 0.8;
+    margin: 4px 0px 2px 4px;
+    overflow: hidden;
+    color: #495057; }
+  .hw-select-text-root .hw-dropdown-main-div {
+    min-width: 150px;
+    position: relative; }
+    .hw-select-text-root .hw-dropdown-main-div .hw-dropdown-selected-value {
+      border: 1px solid #ccc;
+      min-width: 70px;
+      border-radius: 4px;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+      position: relative;
+      outline: none; }
+      .hw-select-text-root .hw-dropdown-main-div .hw-dropdown-selected-value .hw-dropdown-input {
+        display: none; }
+      .hw-select-text-root .hw-dropdown-main-div .hw-dropdown-selected-value .value {
+        text-align: center;
+        line-height: 140%;
+        min-height: 28px;
+        font-size: 14px;
+        padding: 5px 20px 5px 0px;
+        width: 100%;
+        cursor: pointer;
+        background: white;
+        background: -moz-linear-gradient(to bottom, white 0%, #fdfdfd 47%, #f9f9f9 100%);
+        background: -webkit-linear-gradient(to bottom, white 0%, #fdfdfd 47%, #f9f9f9 100%);
+        background: linear-gradient(to bottom, white 0%, #fdfdfd 47%, #f9f9f9 100%); }
+      .hw-select-text-root .hw-dropdown-main-div .hw-dropdown-selected-value .hw-arrow {
+        width: 20px;
+        font-size: 20px;
+        color: black;
+        border: 1px solid #5b8ca5;
+        border-bottom: 1px solid #a1bbc7;
+        line-height: 1;
+        text-align: center;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        background: #31708f;
+        background: -moz-linear-gradient(top, #31708f 1%, #163150 100%);
+        background: -webkit-linear-gradient(top, #31708f 1%, #163150 100%);
+        background: linear-gradient(to bottom, #31708f 1%, #143e58 100%);
+        color: white;
+        text-shadow: rgba(0, 0, 0, 0.69) 1px 1px 1px, 2px 1px 1px #929292;
+        cursor: pointer;
+        position: absolute;
+        top: 1px;
+        right: 0px;
+        height: 27px;
+        margin-right: 0.5px;
+        -webkit-box-shadow: inset 0px 1px 1px white, 0px 3px 2px -2px rgba(0, 0, 0, 0.78), -1px 0px 1px -1px #929292;
+        box-shadow: inset 0px 1px 1px white, 0px 3px 2px -2px rgba(0, 0, 0, 0.78), -1px 0px 1px -1px #929292;
+        box-shadow: inset 0px 1px 1px white, 0px 3px 2px -2px rgba(0, 0, 0, 0.78), -1px 0px 1px -1px #929292; }
+        .hw-select-text-root .hw-dropdown-main-div .hw-dropdown-selected-value .hw-arrow .hw-arrow-caret-open {
+          opacity: 0; }
+        .hw-select-text-root .hw-dropdown-main-div .hw-dropdown-selected-value .hw-arrow .hw-arrow-caret-closed {
+          opacity: 1; }
+        .hw-select-text-root .hw-dropdown-main-div .hw-dropdown-selected-value .hw-arrow.open .hw-arrow-caret-open {
+          opacity: 1; }
+        .hw-select-text-root .hw-dropdown-main-div .hw-dropdown-selected-value .hw-arrow.open .hw-arrow-caret-closed {
+          opacity: 0; }
+        .hw-select-text-root .hw-dropdown-main-div .hw-dropdown-selected-value .hw-arrow > span {
+          right: -1px;
+          top: 1px;
+          position: absolute;
+          -webkit-transition: all 0.15s 0.15s;
+          -moz-transition: all 0.15s 0.15s;
+          transition: all 0.2s 0.2s; }
+      .hw-select-text-root .hw-dropdown-main-div .hw-dropdown-selected-value:focus {
+        max-height: 1000px;
+        max-width: 1000px;
+        opacity: 1; }
+    .hw-select-text-root .hw-dropdown-main-div .hw-arrow {
+      height: 25px;
+      line-height: 96%;
+      top: -0.5px;
+      right: -1px; }
+    .hw-select-text-root .hw-dropdown-main-div .value {
+      font-weight: bold;
+      min-height: 26px;
+      padding: 3px 20px 3px 0px;
+      color: #1b435e; }
+    .hw-select-text-root .hw-dropdown-main-div .hw-select-data-value {
+      z-index: 80;
+      position: absolute;
+      border: 1px solid #aaa;
+      -webkit-box-shadow: 0 7px 6px -6px #6a6a6a, 7px 0px 6px -6px #6a6a6a;
+      -moz-box-shadow: 0 7px 6px -6px #6a6a6a, 7px 0px 6px -6px #6a6a6a;
+      box-shadow: 0 4px 3px -3px #000000, 7px 0px 6px -6px #000000;
+      -webkit-transition: all 0.1s 0.1s;
+      -moz-transition: all 0.1s 0.1s;
+      transition: all 0.1s 0.1s;
+      max-height: 0px;
+      max-width: 0px;
+      opacity: 0;
+      overflow: hidden;
+      outline: none;
+      border-radius: 3px; }
+      .hw-select-text-root .hw-dropdown-main-div .hw-select-data-value.open {
+        max-height: 1000px;
+        max-width: 1000px;
+        opacity: 1; }
+      .hw-select-text-root .hw-dropdown-main-div .hw-select-data-value > div {
+        min-width: 160px;
+        background: white;
+        background: -moz-linear-gradient(to bottom, white 0%, #fdfdfd 47%, #f9f9f9 100%);
+        background: -webkit-linear-gradient(to bottom, white 0%, #fdfdfd 47%, #f9f9f9 100%);
+        background: linear-gradient(to bottom, white 0%, #fdfdfd 47%, #f9f9f9 100%);
+        text-align: center;
+        padding: 6px 12px;
+        min-width: 160px;
+        cursor: pointer;
+        color: #163150;
+        text-shadow: 0px 0px 0px rgba(255, 255, 255, 0.15);
+        font-size: 15px; }
+        .hw-select-text-root .hw-dropdown-main-div .hw-select-data-value > div:hover {
+          background: #31708f;
+          background: -moz-linear-gradient(top, #31708f 1%, #163150 100%);
+          background: -webkit-linear-gradient(top, #31708f 1%, #163150 100%);
+          background: linear-gradient(to bottom, #31708f 1%, #1b4b6a 100%);
+          font-weight: bold;
+          color: white;
+          text-shadow: 1px 1px 0px #000;
+          transform: scale(0.99);
+          -webkit-box-shadow: inset 0px -1px 2px 0.7px #356aa0, 0 8px 6px -6px #6a6a6a, 6px 0px 6px -4px #666166;
+          -moz-box-shadow: inset 0px -1px 2px 0.7px #356aa0, 0 8px 6px -6px #6a6a6a, 6px 0px 6px -4px #666166;
+          box-shadow: inset 0px -1px 2px 0.7px #356aa0, 0 8px 6px -6px #6a6a6a, 6px 0px 6px -4px #666166; }
+      .hw-select-text-root .hw-dropdown-main-div .hw-select-data-value > div:not(:last-child) {
+        border-bottom: 1px inset #eee; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*hw colors and shadows start */
+/*hw input start*/
+/*button constants end*/
+/*@mixin default-application-gradient{
+  background: #6d6e6d;
+  background: -moz-linear-gradient(top,  #55656b 0%, #2e383ee0 100%);
+  background: -webkit-linear-gradient(top, #55656b 0%,#2e383ee0 100%);
+  background: linear-gradient(to bottom,  #55656b 0%,#2e383ee0 100%);
+}*/
+.hw-select-root {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative; }
+
+.hw-select-choose-section {
+  -webkit-box-shadow: 0 8px 6px -6px #555, 2px 0px 4px -1px #999,-2px 0px 4px -1px #999;
+  -moz-box-shadow: 0 8px 6px -6px #555, 2px 0px 4px -1px #999,-2px 0px 4px -1px #999;
+  box-shadow: 0 8px 6px -6px #555, 2px 0px 4px -1px #999,-2px 0px 4px -1px #999;
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  z-index: 25;
+  top: 88px;
+  overflow-y: auto;
+  transform: rotateY(0deg);
+  transition: transform 0.5s; }
+  .hw-select-choose-section.select-show {
+    transform: rotateY(0deg); }
+
+.hw-select-option {
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #f4f4f4; }
+  .hw-select-option:last-child {
+    border: 0px; }
+  .hw-select-option.main-selection {
+    height: 100%; }
+  .hw-select-option:hover {
+    background: white;
+    background: -moz-linear-gradient(top, white 0%, #f6f6f6 47%, #ededed 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, white), color-stop(47%, #f6f6f6), color-stop(100%, #ededed));
+    background: -webkit-linear-gradient(top, white 0%, #f6f6f6 47%, #ededed 100%);
+    background: -o-linear-gradient(top, white 0%, #f6f6f6 47%, #ededed 100%);
+    background: -ms-linear-gradient(top, white 0%, #f6f6f6 47%, #ededed 100%);
+    background: linear-gradient(to bottom, white 0%, #f6f6f6 47%, #ededed 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=0 ); }
+
+.hw-select-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 12px;
+  line-height: 1.21;
+  height: 38px;
+  font-weight: 500; }
+
+.hw-select-label {
+  color: var(--color-primary-font);
+  font-size: calc( 14px); }
+  .hw-select-label.hw-select-desc {
+    font-size: calc( 14px *1.05); }
+
+.hw-select-description {
+  font-size: calc( 14px * 0.8);
+  color: var(--color-primary);
+  opacity: 0.8; }
+
+.hw-select-icon {
+  position: absolute;
+  padding: 1px 5px;
+  z-index: 8;
+  left: 0px;
+  color: var(--color-primary); }
+  .hw-select-icon.main-icon-arrow {
+    left: auto;
+    right: 4px;
+    transform: scale(1.5);
+    color: var(--color-primary);
+    opacity: 0.5; }
+  .hw-select-icon.right {
+    left: auto;
+    right: 4px;
+    opacity: 0.7;
+    font-size: 12px; }
+
+.hw-select-selected {
+  height: 44px;
+  border: 1px solid #ced4da;
+  border-radius: 3px; }
+  .hw-select-selected.error {
+    border-color: var(--color-error); }
+  .hw-select-selected .hw-select-placeholder {
+    transform: scale(1.1);
+    opacity: 0.4; }
+  .hw-select-selected.error .hw-select-placeholder {
+    color: var(--color-error); }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*hw colors and shadows start */
+/*hw input start*/
+/*button constants end*/
+/*@mixin default-application-gradient{
+  background: #6d6e6d;
+  background: -moz-linear-gradient(top,  #55656b 0%, #2e383ee0 100%);
+  background: -webkit-linear-gradient(top, #55656b 0%,#2e383ee0 100%);
+  background: linear-gradient(to bottom,  #55656b 0%,#2e383ee0 100%);
+}*/
+.hw-check-box-root {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+  .hw-check-box-root.hw-disabled {
+    cursor: not-allowed;
+    opacity: 0.7; }
+  .hw-check-box-root.flex-direction-column {
+    -webkit-flex-direction: column;
+    flex-direction: column; }
+  .hw-check-box-root.flex-direction-column-reverse {
+    -webkit-flex-direction: column-reverse;
+    flex-direction: column-reverse; }
+  .hw-check-box-root.flex-direction-row-reverse {
+    -webkit-flex-direction: row-reverse;
+    flex-direction: row-reverse; }
+
+.hw-check-box-label {
+  color: var(--color-primary-font);
+  font-size: 15px;
+  margin: 0px;
+  padding: 0px 8px; }
+
+.hw-check-box-data {
+  cursor: pointer;
+  padding: 0px 4px;
+  color: var(--color-primary);
+  position: relative;
+  min-width: 20px;
+  min-height: 20px; }
+  .hw-check-box-data.hw-disabled {
+    cursor: not-allowed; }
+
+.hw-check-box-icon {
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+  transform: scale(1.4);
+  font-size: 14px;
+  position: absolute;
+  bottom: 2px; }
+  .hw-check-box-icon.hw-visible {
+    opacity: 1; }
+  .hw-check-box-icon.hw-invisible {
+    opacity: 0; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*hw colors and shadows start */
+/*hw input start*/
+/*button constants end*/
+/*@mixin default-application-gradient{
+  background: #6d6e6d;
+  background: -moz-linear-gradient(top,  #55656b 0%, #2e383ee0 100%);
+  background: -webkit-linear-gradient(top, #55656b 0%,#2e383ee0 100%);
+  background: linear-gradient(to bottom,  #55656b 0%,#2e383ee0 100%);
+}*/
+.hw-radio-root {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+  .hw-radio-root.flex-direction-column {
+    -webkit-flex-direction: column;
+    flex-direction: column; }
+  .hw-radio-root.flex-direction-column-reverse {
+    -webkit-flex-direction: column-reverse;
+    flex-direction: column-reverse; }
+  .hw-radio-root.flex-direction-row-reverse {
+    -webkit-flex-direction: row-reverse;
+    flex-direction: row-reverse; }
+  .hw-radio-root.hw-disabled {
+    cursor: not-allowed;
+    opacity: 0.7; }
+
+.hw-radio-data {
+  cursor: pointer; }
+  .hw-radio-data.hw-disabled {
+    cursor: not-allowed;
+    opacity: 0.7; }
+
+.hw-radio-label {
+  color: var(--color-primary-font);
+  font-size: 15px; }
+
+.hw-radio-root.flex-direction-row .hw-radio-info {
+  margin-right: 8px; }
+.hw-radio-root.flex-direction-row-reverse .hw-radio-info {
+  margin-left: 8px; }
+.hw-radio-root.flex-direction-column-reverse .hw-radio-info {
+  margin-top: 6px; }
+.hw-radio-root.flex-direction-column .hw-radio-info {
+  margin-bottom: 6px; }
+
+.hw-radio-data-outer {
+  border: 1px solid transparent;
+  width: 23px;
+  height: 23px;
+  background: var(--color-primary);
+  border-radius: calc(11.5px);
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.hw-radio-data-inner {
+  border: 3px solid white;
+  width: 17px;
+  height: 17px;
+  background: transparent;
+  transition: background-color 0.4s ease-in;
+  border-radius: calc(8.5px); }
+  .hw-radio-data-inner.hw-not-selected {
+    background: white; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*hw colors and shadows start */
+/*hw input start*/
+/*button constants end*/
+/*@mixin default-application-gradient{
+  background: #6d6e6d;
+  background: -moz-linear-gradient(top,  #55656b 0%, #2e383ee0 100%);
+  background: -webkit-linear-gradient(top, #55656b 0%,#2e383ee0 100%);
+  background: linear-gradient(to bottom,  #55656b 0%,#2e383ee0 100%);
+}*/
+.hw-radio-group-root {
+  display: flex;
+  flex-direction: column; }
+  .hw-radio-group-root .hw-help-text {
+    border-top: 1px solid #f2f2f2; }
+    .hw-radio-group-root .hw-help-text.error {
+      border-top: 1px solid var(--color-error);
+      background: var(--color-error-background); }
+
+.hw-radio-group-data {
+  display: flex;
+  justify-content: space-between; }
+  .hw-radio-group-data.flex-align-items-center {
+    -webkit-align-items: center;
+    align-items: center; }
+  .hw-radio-group-data.flex-align-items-start {
+    -webkit-align-items: flex-start;
+    align-items: flex-start; }
+  .hw-radio-group-data.flex-align-items-end {
+    -webkit-align-items: flex-end;
+    align-items: flex-end; }
+  .hw-radio-group-data.flex-direction-column {
+    -webkit-flex-direction: column;
+    flex-direction: column; }
+  .hw-radio-group-data.flex-direction-column-reverse {
+    -webkit-flex-direction: column-reverse;
+    flex-direction: column-reverse; }
+  .hw-radio-group-data.flex-direction-row-reverse {
+    -webkit-flex-direction: row-reverse;
+    flex-direction: row-reverse; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*hw colors and shadows start */
+/*hw input start*/
+/*button constants end*/
+/*@mixin default-application-gradient{
+  background: #6d6e6d;
+  background: -moz-linear-gradient(top,  #55656b 0%, #2e383ee0 100%);
+  background: -webkit-linear-gradient(top, #55656b 0%,#2e383ee0 100%);
+  background: linear-gradient(to bottom,  #55656b 0%,#2e383ee0 100%);
+}*/
+.hw-paper {
+  background: -webkit-radial-gradient(center, #f9f9f9, #FFFFFF);
+  background: -moz-radial-gradient(center, #f9f9f9, #FFFFFF);
+  background: radial-gradient(ellipse at center, #f9f9f9, #FFFFFF);
+  padding: 10px 15px 20px;
+  min-width: 350px;
+  border-radius: 3px;
+  box-shadow: 0px 5px 1px -6px rgba(0, 0, 0, 0.9), 0px 2px 8px 0px rgba(0, 0, 0, 0.14), 0px 2px 3px 0px rgba(0, 0, 0, 0.12);
+  position: relative; }
+  @media screen and (max-width: 500px) {
+    .hw-paper {
+      padding: 5px 15px 0px; } }
+  .hw-paper .hw-paper-header {
+    box-shadow: 0 4px 5px 0px rgba(0, 0, 0, 0.14), 0 7px 5px -5px #1a2c41;
+    background-color: #175d84;
+    min-width: 120px;
+    position: static;
+    padding: 2px 4px;
+    float: right;
+    margin-right: -30px;
+    text-align: center; }
+    .hw-paper .hw-paper-header .hw-paper-header-name {
+      color: white;
+      font-weight: bold;
+      font-size: 12px;
+      text-shadow: 0 1px 1px #000;
+      text-transform: uppercase; }
+    @media screen and (max-width: 500px) {
+      .hw-paper .hw-paper-header {
+        margin-right: -20px; } }
+  .hw-paper .hw-paper-body {
+    padding: 35px 10px 10px; }
+    @media screen and (max-width: 500px) {
+      .hw-paper .hw-paper-body {
+        padding: 26px 10px 10px; } }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*hw colors and shadows start */
+/*hw input start*/
+/*button constants end*/
+/*@mixin default-application-gradient{
+  background: #6d6e6d;
+  background: -moz-linear-gradient(top,  #55656b 0%, #2e383ee0 100%);
+  background: -webkit-linear-gradient(top, #55656b 0%,#2e383ee0 100%);
+  background: linear-gradient(to bottom,  #55656b 0%,#2e383ee0 100%);
+}*/
+.hw-main-switch input {
+  margin: 4px 0 0;
+  line-height: normal;
+  box-sizing: border-box;
+  padding: 0; }
+.hw-main-switch label {
+  max-width: 100%; }
+.hw-main-switch .hw-switch {
+  position: relative;
+  overflow: hidden;
+  min-width: 120px;
+  height: 34px; }
+  .hw-main-switch .hw-switch.input {
+    display: none; }
+  .hw-main-switch .hw-switch.off {
+    border-color: #4b4b4b;
+    box-shadow: -0.5px 0px 2px black; }
+    .hw-main-switch .hw-switch.off .switch-group {
+      left: -100%; }
+.hw-main-switch .switch-group {
+  position: absolute;
+  width: 200%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  transition: left 0.35s;
+  -webkit-transition: left 0.35s;
+  -moz-user-select: none;
+  -webkit-user-select: none; }
+.hw-main-switch .switch-handle {
+  position: relative;
+  margin: 0 auto;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 100%;
+  width: 0px;
+  border-width: 0 1px; }
+.hw-main-switch .hw-switch-default {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px; }
+  .hw-main-switch .hw-switch-default.active {
+    outline: 0;
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.28), inset 0 -3px 5px rgba(0, 0, 0, 0.28); }
+.hw-main-switch .hw-primary {
+  border: none;
+  color: #fff;
+  background-color: #175d84;
+  text-shadow: 0 1px 1px #000;
+  font-weight: normal;
+  box-shadow: 0.5px 0px 2px #313131; }
+  .hw-main-switch .hw-primary .hw-button-text {
+    font-size: 14px;
+    text-shadow: 0 1px 1px #000; }
+  .hw-main-switch .hw-primary.outline {
+    background-color: #fff;
+    border: 2px solid #175d84;
+    color: #175d84;
+    text-shadow: none; }
+  .hw-main-switch .hw-primary.hw-disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+    border-color: var(--color-disabled);
+    box-shadow: none; }
+    .hw-main-switch .hw-primary.hw-disabled:hover {
+      box-shadow: none; }
+  .hw-main-switch .hw-primary:hover {
+    box-shadow: 0 6px 6px -6px rgba(75, 75, 75, 0.9), 7px 0 6px -7px rgba(75, 75, 75, 0.9); }
+  .hw-main-switch .hw-primary.off:hover {
+    box-shadow: 0 6px 6px -6px rgba(75, 75, 75, 0.9), -7px 0 6px -7px rgba(75, 75, 75, 0.9); }
+.hw-main-switch .switch-on {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 50%;
+  margin: 0;
+  border: 0;
+  border-radius: 0; }
+  .hw-main-switch .switch-on.hw-switch-default {
+    padding-right: 24px; }
+.hw-main-switch .switch-off {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  right: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  text-shadow: none; }
+  .hw-main-switch .switch-off.hw-switch-default {
+    padding-left: 24px; }
+.hw-main-switch .hw-default {
+  color: #fff;
+  background-color: #fff;
+  border-color: #ccc; }
+  .hw-main-switch .hw-default:active {
+    color: #fff;
+    border-color: #adadad; }
+  .hw-main-switch .hw-default:hover {
+    color: #333;
+    border-color: #adadad;
+    text-shadow: 0px 1px 1px #515151; }
+
+.hw-backdrop {
+  opacity: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  z-index: -1;
+  height: 100%;
+  position: fixed;
+  align-items: center;
+  touch-action: none;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-tap-highlight-color: transparent; }
+  .hw-backdrop.open {
+    opacity: 1;
+    z-index: 50;
+    transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*hw colors and shadows start */
+/*hw input start*/
+/*button constants end*/
+/*@mixin default-application-gradient{
+  background: #6d6e6d;
+  background: -moz-linear-gradient(top,  #55656b 0%, #2e383ee0 100%);
+  background: -webkit-linear-gradient(top, #55656b 0%,#2e383ee0 100%);
+  background: linear-gradient(to bottom,  #55656b 0%,#2e383ee0 100%);
+}*/
+@keyframes scroll-down {
+  0% {
+    opacity: 0;
+    -webkit-transform: scaleY(0.3);
+    transform: scaleY(0.3); }
+  30% {
+    opacity: 1; } }
+.hw-calendar-root {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid #f3f3f3;
+  padding: 1px;
+  overflow: hidden;
+  background: white;
+  z-index: 200;
+  display: none; }
+  .hw-calendar-root.hw-calendar-popover {
+    -webkit-box-shadow: 0 8px 6px -6px #555, 2px 0px 4px -1px #999,-2px 0px 4px -1px #999;
+    -moz-box-shadow: 0 8px 6px -6px #555, 2px 0px 4px -1px #999,-2px 0px 4px -1px #999;
+    box-shadow: 0 8px 6px -6px #555, 2px 0px 4px -1px #999,-2px 0px 4px -1px #999;
+    position: absolute;
+    -webkit-animation: scroll-down .36s;
+    -webkit-transform-origin: left top 0;
+    animation: scroll-down .36s;
+    transform-origin: left top 0; }
+    .hw-calendar-root.hw-calendar-popover.hw-calendar-popover-above {
+      transform-origin: left bottom 0; }
+  .hw-calendar-root.hw-calendar-show {
+    display: block; }
+
+.hw-calendar-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 260px;
+  min-width: 270px; }
+
+.hw-calendar-panel-data {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 38px;
+  font-size: 14px;
+  color: var(--color-primary-font);
+  cursor: pointer; }
+  .hw-calendar-panel-data:not(.hw-calendar-header) {
+    border: 1px solid #f9f9f9;
+    padding: 6px; }
+    .hw-calendar-panel-data:not(.hw-calendar-header):hover:not(.disabled) {
+      background: white;
+      background: -moz-linear-gradient(top, white 0%, #f6f6f6 47%, #ededed 100%);
+      background: -webkit-gradient(left top, left bottom, color-stop(0%, white), color-stop(47%, #f6f6f6), color-stop(100%, #ededed));
+      background: -webkit-linear-gradient(top, white 0%, #f6f6f6 47%, #ededed 100%);
+      background: -o-linear-gradient(top, white 0%, #f6f6f6 47%, #ededed 100%);
+      background: -ms-linear-gradient(top, white 0%, #f6f6f6 47%, #ededed 100%);
+      background: linear-gradient(to bottom, white 0%, #f6f6f6 47%, #ededed 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=0 );
+      transform: scale(1.05); }
+  .hw-calendar-panel-data.hw-calendar-header {
+    border-top: 1px solid white;
+    font-size: calc(14px - 1px);
+    background: var(--color-primary);
+    color: white; }
+  .hw-calendar-panel-data.active {
+    position: relative;
+    opacity: 0.8; }
+    .hw-calendar-panel-data.active::before {
+      width: 30px;
+      height: 30px;
+      content: ' ';
+      position: absolute;
+      border: 1px solid var(--color-secondary);
+      box-shadow: inset 0px 0px 5px var(--color-primary), 1px 1px 3px -1px;
+      background: transparent;
+      background: transparent;
+      border-radius: 15px; }
+    .hw-calendar-panel-data.active.hw-calendar-year::before {
+      width: 46px;
+      height: 46px;
+      border-radius: 23px; }
+    .hw-calendar-panel-data.active.hw-calendar-month::before {
+      width: 60px;
+      height: 60px;
+      border-radius: 30px; }
+
+.hw-calendar-data-rows {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex: 1;
+  overflow: hidden; }
+  .hw-calendar-data-rows.hw-calendar-years-control {
+    display: flex;
+    border-top: 1px solid #eee; }
+    .hw-calendar-data-rows.hw-calendar-years-control > div {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex: 1;
+      cursor: not-allowed; }
+      .hw-calendar-data-rows.hw-calendar-years-control > div.hw-control-year-button {
+        flex: 2;
+        font-size: calc(14px - 2px);
+        border-bottom: 1px solid #eee;
+        display: flex;
+        padding: 0px;
+        cursor: pointer;
+        margin: 4px;
+        position: relative; }
+        .hw-calendar-data-rows.hw-calendar-years-control > div.hw-control-year-button::before {
+          width: 100%;
+          height: 100%;
+          content: ' ';
+          position: absolute;
+          box-shadow: inset 0px 0px 5px var(--color-secondary), 3px 4px 4px -5px black;
+          background: transparent;
+          border-radius: 3px; }
+        .hw-calendar-data-rows.hw-calendar-years-control > div.hw-control-year-button::after {
+          content: "";
+          width: 95%;
+          height: 85%;
+          position: absolute;
+          background: transparent;
+          border-radius: 3px; }
+        .hw-calendar-data-rows.hw-calendar-years-control > div.hw-control-year-button:hover {
+          transform: scale(1.03);
+          outline: none; }
+        .hw-calendar-data-rows.hw-calendar-years-control > div.hw-control-year-button > div {
+          flex: 2;
+          padding: 0px;
+          display: flex;
+          justify-content: space-around; }
+          .hw-calendar-data-rows.hw-calendar-years-control > div.hw-control-year-button > div:nth-child(2) {
+            flex: 1; }
+
+.hw-calendar-top-header {
+  font-size: calc(14px);
+  display: flex;
+  flex-direction: column;
+  background: var(--color-primary);
+  color: white; }
+  .hw-calendar-top-header .hw-calendar-top-day {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 1px 0px 3px 0px;
+    cursor: pointer;
+    font-size: calc(14px + 10%);
+    text-shadow: 0px 1px 1px black; }
+    .hw-calendar-top-header .hw-calendar-top-day > div {
+      padding: 0px 4px; }
+      .hw-calendar-top-header .hw-calendar-top-day > div:nth-child(2) {
+        font-size: calc(14px + 15%); }
+  .hw-calendar-top-header .hw-calendar-top-month {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 4px; }
+    .hw-calendar-top-header .hw-calendar-top-month div {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center; }
+    .hw-calendar-top-header .hw-calendar-top-month > div {
+      flex: 1; }
+      .hw-calendar-top-header .hw-calendar-top-month > div:nth-child(2) {
+        flex: 8; }
+    .hw-calendar-top-header .hw-calendar-top-month .hw-calendar-button-move {
+      flex: 1;
+      justify-content: flex-start;
+      cursor: pointer; }
+      .hw-calendar-top-header .hw-calendar-top-month .hw-calendar-button-move:last-child {
+        justify-content: flex-end; }
+      .hw-calendar-top-header .hw-calendar-top-month .hw-calendar-button-move:hover > svg {
+        transform: scale(1.25); }
+    .hw-calendar-top-header .hw-calendar-top-month .hw-calendar-top-data-part {
+      cursor: pointer;
+      flex: 4; }
+      .hw-calendar-top-header .hw-calendar-top-month .hw-calendar-top-data-part > div {
+        flex: 3; }
+        .hw-calendar-top-header .hw-calendar-top-month .hw-calendar-top-data-part > div:last-child {
+          flex: 1; }
+
+.hw-calendar-top-header1 {
+  font-size: calc(14px);
+  line-height: 0.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 10px 6px;
+  color: white;
+  background: var(--color-primary); }
+  .hw-calendar-top-header1 > div {
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer; }
+    .hw-calendar-top-header1 > div > div {
+      padding: 0px 3px; }
+    .hw-calendar-top-header1 > div:not(.hw-calendar-top-day) > div:hover {
+      text-shadow: 0.8px 0.8px 1px #111;
+      transform: scale(1.07); }
+    .hw-calendar-top-header1 > div.hw-calendar-top-day {
+      justify-content: flex-start;
+      align-items: flex-end; }
+      .hw-calendar-top-header1 > div.hw-calendar-top-day > div {
+        padding: 0px 2px;
+        font-size: calc(14px + 25%); }
+        .hw-calendar-top-header1 > div.hw-calendar-top-day > div:first-child {
+          font-size: calc(14px + 10%); }
+      .hw-calendar-top-header1 > div.hw-calendar-top-day:hover > div {
+        text-shadow: 0.5px 0.5px 1px #111;
+        transform: scale(1.05); }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*hw colors and shadows start */
+/*hw input start*/
+/*button constants end*/
+/*@mixin default-application-gradient{
+  background: #6d6e6d;
+  background: -moz-linear-gradient(top,  #55656b 0%, #2e383ee0 100%);
+  background: -webkit-linear-gradient(top, #55656b 0%,#2e383ee0 100%);
+  background: linear-gradient(to bottom,  #55656b 0%,#2e383ee0 100%);
+}*/
+.hw-nav-bar {
+  background: #2e383ee0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3px 6px;
+  position: relative; }
+
+.hw-bar-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end; }
+  @media screen and (max-width: 1023px) {
+    .hw-bar-list {
+      flex-direction: column;
+      justify-content: flex-start;
+      position: absolute;
+      top: calc(100% + 2px);
+      max-width: 200px;
+      min-width: 170px;
+      right: -200px;
+      background: #2e383ee0;
+      height: calc(100vh - 100% - 4px);
+      z-index: 100;
+      transition: all 0.3s ease-in-out;
+      opacity: 1; }
+      .hw-bar-list.opened {
+        right: 0px; } }
+
+.hw-bar-list-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 6px 4px;
+  min-width: 120px;
+  font-size: calc(14px); }
+  .hw-bar-list-item:hover {
+    color: white;
+    text-decoration: none; }
+  .hw-bar-list-item a {
+    color: white; }
+  .hw-bar-list-item > svg {
+    margin-right: 8px;
+    transform: scale(1.1); }
+  .hw-bar-list-item.active {
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(60, 72, 88, 0.4);
+    background-color: #FFF;
+    color: #3C4858; }
+    .hw-bar-list-item.active a {
+      color: #3C4858;
+      font-weight: bold;
+      text-decoration: none; }
+  @media screen and (max-width: 1023px) {
+    .hw-bar-list-item {
+      justify-content: flex-start;
+      flex-direction: row-reverse; }
+      .hw-bar-list-item > svg {
+        min-width: 30px; } }
+
+.hw-bar-list-control {
+  display: none; }
+  @media screen and (max-width: 1023px) {
+    .hw-bar-list-control {
+      display: block;
+      color: white; } }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*hw colors and shadows start */
+/*hw input start*/
+/*button constants end*/
+/*@mixin default-application-gradient{
+  background: #6d6e6d;
+  background: -moz-linear-gradient(top,  #55656b 0%, #2e383ee0 100%);
+  background: -webkit-linear-gradient(top, #55656b 0%,#2e383ee0 100%);
+  background: linear-gradient(to bottom,  #55656b 0%,#2e383ee0 100%);
+}*/
+/*hw colors and shadows start */
+/*hw input start*/
+/*button constants end*/
+.hw-tooltip-root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: auto;
+  min-width: 200px;
+  padding: 10px 20px;
+  font-size: 11px;
+  color: var(--color-primary);
+  border-radius: 8px;
+  z-index: 99999999;
+  box-sizing: border-box;
+  border: 1px solid #cecece;
+  white-space: nowrap;
+  text-transform: uppercase;
+  text-shadow: #cecece;
+  background: #ffffff;
+  background: -moz-linear-gradient(top, #ffffff 20%, #e5e5e5 100%);
+  background: -webkit-linear-gradient(top, #ffffff 20%, #e5e5e5 100%);
+  background: linear-gradient(to bottom, #ffffff 20%, #e5e5e5 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); }
+  .hw-tooltip-root .hw-tooltip-content {
+    margin: 0px 10px; }
+  .hw-tooltip-root > svg {
+    position: absolute;
+    color: var(--color-primary);
+    right: 4px;
+    top: 10px;
+    opacity: 0.6;
+    font-size: 17px; }
+  .hw-tooltip-root > i {
+    position: absolute;
+    width: 24px;
+    height: 12px;
+    overflow: hidden; }
+    .hw-tooltip-root > i::after {
+      background: -moz-linear-gradient(top, #ffffff 20%, #e5e5e5 100%);
+      background: -webkit-linear-gradient(top, #ffffff 20%, #e5e5e5 100%);
+      background: linear-gradient(to bottom, #ffffff 20%, #e5e5e5 100%);
+      content: '';
+      position: absolute;
+      border: 1px solid #cecece;
+      width: 12px;
+      height: 12px; }
+  .hw-tooltip-root.top {
+    -webkit-box-shadow: 0px 8px 6px -6px #777777;
+    -moz-box-shadow: 0px 8px 6px -6px #777777;
+    box-shadow: 0px 8px 6px -6px #777777; }
+    .hw-tooltip-root.top > i {
+      top: 99%;
+      left: 50%;
+      margin-left: -12px; }
+      .hw-tooltip-root.top > i::after {
+        top: auto;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg); }
+  .hw-tooltip-root.top-right {
+    -webkit-box-shadow: -6px 8px 6px -6px #777777;
+    -moz-box-shadow: -6px 8px 6px -6px #777777;
+    box-shadow: -6px 8px 6px -6px #777777; }
+    .hw-tooltip-root.top-right > i {
+      top: 99%;
+      left: 90%;
+      margin-left: -12px; }
+      .hw-tooltip-root.top-right > i::after {
+        top: auto;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg); }
+    .hw-tooltip-root.top-right > svg {
+      left: 4px; }
+  .hw-tooltip-root.top-left {
+    -webkit-box-shadow: 7px 8px 6px -6px  #777777;
+    -moz-box-shadow: 7px 8px 6px -6px  #777777;
+    box-shadow: 7px 8px 6px -6px  #777777; }
+    .hw-tooltip-root.top-left > i {
+      top: 99%;
+      left: 10%;
+      margin-left: -12px; }
+      .hw-tooltip-root.top-left > i::after {
+        top: auto;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg); }
+  .hw-tooltip-root.bottom {
+    -webkit-box-shadow: 0px 8px 6px -6px #777777;
+    -moz-box-shadow: 0px 8px 6px -6px #777777;
+    box-shadow: 0px 8px 6px -6px #777777; }
+    .hw-tooltip-root.bottom > i {
+      bottom: 100%;
+      left: 50%;
+      margin-left: -12px; }
+      .hw-tooltip-root.bottom > i::after {
+        left: 50%;
+        transform: translate(-50%, 50%) rotate(45deg); }
+  .hw-tooltip-root.bottom-right {
+    -webkit-box-shadow: -6px 8px 6px -6px #777777;
+    -moz-box-shadow: -6px 8px 6px -6px #777777;
+    box-shadow: -6px 8px 6px -6px #777777; }
+    .hw-tooltip-root.bottom-right > i {
+      bottom: 100%;
+      left: 90%;
+      margin-left: -12px; }
+      .hw-tooltip-root.bottom-right > i::after {
+        left: 50%;
+        transform: translate(-50%, 50%) rotate(45deg); }
+    .hw-tooltip-root.bottom-right > svg {
+      left: 4px; }
+  .hw-tooltip-root.bottom-left {
+    -webkit-box-shadow: 7px 8px 6px -6px #777777;
+    -moz-box-shadow: 7px 8px 6px -6px #777777;
+    box-shadow: 7px 8px 6px -6px #777777; }
+    .hw-tooltip-root.bottom-left > i {
+      bottom: 100%;
+      left: 10%; }
+      .hw-tooltip-root.bottom-left > i::after {
+        left: 50%;
+        transform: translate(-50%, 50%) rotate(45deg); }
+  .hw-tooltip-root.left {
+    margin-right: 20px;
+    -webkit-box-shadow: -6px 8px 6px -6px #777777;
+    -moz-box-shadow: -6px 8px 6px -6px #777777;
+    box-shadow: -6px 8px 6px -6px #777777; }
+    .hw-tooltip-root.left > i {
+      width: 12px;
+      height: 24px;
+      top: 50%;
+      left: 100%;
+      margin-top: -12px; }
+      .hw-tooltip-root.left > i::after {
+        left: 0;
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg); }
+  .hw-tooltip-root.left-top {
+    margin-right: 18px;
+    -webkit-box-shadow: -6px 8px 6px -6px #777777;
+    -moz-box-shadow: -6px 8px 6px -6px #777777;
+    box-shadow: -6px 8px 6px -6px #777777; }
+    .hw-tooltip-root.left-top > i {
+      width: 12px;
+      height: 24px;
+      top: 20%;
+      left: 100%;
+      margin-top: -12px; }
+      .hw-tooltip-root.left-top > i::after {
+        left: 0;
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg); }
+  .hw-tooltip-root.left-bottom {
+    margin-right: 18px;
+    -webkit-box-shadow: -6px 8px 6px -6px #777777;
+    -moz-box-shadow: -6px 8px 6px -6px #777777;
+    box-shadow: -6px 8px 6px -6px #777777; }
+    .hw-tooltip-root.left-bottom > i {
+      width: 12px;
+      height: 24px;
+      top: 80%;
+      left: 100%;
+      margin-top: -12px; }
+      .hw-tooltip-root.left-bottom > i::after {
+        left: 0;
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg); }
+  .hw-tooltip-root.right {
+    -webkit-box-shadow: -6px 8px 6px -6px #777777;
+    -moz-box-shadow: -6px 8px 6px -6px #777777;
+    box-shadow: -6px 8px 6px -6px #777777; }
+    .hw-tooltip-root.right > i {
+      top: 50%;
+      right: 100%;
+      margin-top: -12px;
+      width: 12px;
+      height: 24px; }
+      .hw-tooltip-root.right > i::after {
+        left: 0;
+        top: 50%;
+        transform: translate(50%, -50%) rotate(-45deg); }
+  .hw-tooltip-root.right-top {
+    margin-right: 18px;
+    -webkit-box-shadow: -6px 8px 6px -6px #777777;
+    -moz-box-shadow: -6px 8px 6px -6px #777777;
+    box-shadow: -6px 8px 6px -6px #777777; }
+    .hw-tooltip-root.right-top > i {
+      top: 50%;
+      right: 100%;
+      margin-top: -12px;
+      width: 12px;
+      height: 24px; }
+      .hw-tooltip-root.right-top > i::after {
+        left: 0;
+        top: 50%;
+        transform: translate(50%, -50%) rotate(-45deg); }
+  .hw-tooltip-root.right-bottom {
+    margin-right: 18px;
+    -webkit-box-shadow: -6px 8px 6px -6px #777777;
+    -moz-box-shadow: -6px 8px 6px -6px #777777;
+    box-shadow: -6px 8px 6px -6px #777777; }
+    .hw-tooltip-root.right-bottom > i {
+      top: 50%;
+      right: 100%;
+      margin-top: -12px;
+      width: 12px;
+      height: 24px; }
+      .hw-tooltip-root.right-bottom > i::after {
+        left: 0;
+        top: 50%;
+        transform: translate(50%, -50%) rotate(-45deg); }
+  .hw-tooltip-root.error {
+    color: var(--color-danger);
+    border-color: var(--color-danger); }
+    .hw-tooltip-root.error > i:after {
+      border-color: var(--color-danger); }
+    .hw-tooltip-root.error > svg {
+      color: inherit; }
+  .hw-tooltip-root.info {
+    color: var(--color-info);
+    border-color: var(--color-info); }
+    .hw-tooltip-root.info > svg {
+      color: inherit; }
+    .hw-tooltip-root.info > i:after {
+      border-color: var(--color-info); }
+  .hw-tooltip-root.question {
+    color: var(--color-primary);
+    border-color: var(--color-primary); }
+    .hw-tooltip-root.question > svg {
+      color: inherit; }
+    .hw-tooltip-root.question > i:after {
+      border-color: var(--color-primary); }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*hw colors and shadows start */
+/*hw input start*/
+/*button constants end*/
+.hw-label {
+  color: var(--color-primary-font);
+  font-size: 11px;
+  padding: 0 0 2px 2px;
+  font-weight: bold;
+  margin: 0;
+  display: flex;
+  text-transform: uppercase;
+  letter-spacing: 0.4px; }
+
+.hw-help-text {
+  font-size: calc( 14px *0.6);
+  line-height: 1.3;
+  padding: 2px 0px 1px 8px;
+  overflow: hidden;
+  color: #2e383ee0;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  font-weight: 500; }
+
+.full-width {
+  width: 100%; }
+
+.error {
+  color: var(--color-error); }
+
+.readOnly * {
+  cursor: default;
+  color: var(--color-disabled);
+  opacity: 1; }
+
+.disabled {
+  cursor: not-allowed;
+  color: var(--color-disabled);
+  opacity: 1; }
+  .disabled * {
+    cursor: not-allowed;
+    color: var(--color-disabled);
+    opacity: 1; }
+
+.hw-focus {
+  box-shadow: 0 0 0 1px var(--color-primary);
+  outline: none; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*hw colors and shadows start */
+/*hw input start*/
+/*button constants end*/
+/*@mixin default-application-gradient{
+  background: #6d6e6d;
+  background: -moz-linear-gradient(top,  #55656b 0%, #2e383ee0 100%);
+  background: -webkit-linear-gradient(top, #55656b 0%,#2e383ee0 100%);
+  background: linear-gradient(to bottom,  #55656b 0%,#2e383ee0 100%);
+}*/
+/*hw colors and shadows start */
+/*hw input start*/
+/*button constants end*/
+.hw-appbar-root {
+  background: #2e383ee0;
+  color: white;
+  font-weight: 400;
+  text-shadow: 1px 1px 1px black;
+  position: static;
+  width: 100%; }
+  .hw-appbar-root.fixed {
+    position: fixed;
+    top: 0;
+    transform: translateZ(0);
+    z-index: 1100; }
+  .hw-appbar-root .hw-toolbar-root {
+    min-height: 45px;
+    max-height: 45px;
+    padding-left: 14px;
+    padding-right: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+    .hw-appbar-root .hw-toolbar-root .hw-toolbar-app-name {
+      display: flex;
+      align-items: center; }
+    .hw-appbar-root .hw-toolbar-root .hw-appbar-menu-icon {
+      padding: 0px 8px;
+      border-radius: 60%;
+      font-size: 20px;
+      cursor: pointer; }
+      .hw-appbar-root .hw-toolbar-root .hw-appbar-menu-icon:hover {
+        background-color: rgba(0, 0, 0, 0.08);
+        transform: scale(1.04); }
+      .hw-appbar-root .hw-toolbar-root .hw-appbar-menu-icon:active {
+        transform: scale(1); }
+    .hw-appbar-root .hw-toolbar-root .hw-appbar-label {
+      font-size: 15px;
+      text-shadow: 1px 1px 1px black;
+      padding-left: 10px; }
+
+.hw-logged-icon {
+  display: flex;
+  align-items: center; }
+  .hw-logged-icon .hw-logged-user {
+    padding-right: 10px;
+    border-right: 1px solid white; }
+  .hw-logged-icon .hw-login-icon {
+    cursor: pointer;
+    padding-right: 10px;
+    padding-left: 10px; }
+  .hw-logged-icon .hw-logout-label {
+    font-size: 12px; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*hw colors and shadows start */
+/*hw input start*/
+/*button constants end*/
+/*@mixin default-application-gradient{
+  background: #6d6e6d;
+  background: -moz-linear-gradient(top,  #55656b 0%, #2e383ee0 100%);
+  background: -webkit-linear-gradient(top, #55656b 0%,#2e383ee0 100%);
+  background: linear-gradient(to bottom,  #55656b 0%,#2e383ee0 100%);
+}*/
+/*hw colors and shadows start */
+/*hw input start*/
+/*button constants end*/
+.hw-pagination-button-root {
+  display: inline-flex;
+  justify-content: center;
+  outline: none;
+  padding: 8px 6px;
+  min-width: 40px;
+  line-height: 1.41;
+  margin-right: 4px;
+  font-size: 14px;
+  font-weight: 400;
+  border: 0.5px solid #ccc;
+  text-shadow: #929292 0px 0.3px 0px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 3px;
+  position: relative;
+  color: #403e40;
+  user-select: none; }
+  .hw-pagination-button-root:hover, .hw-pagination-button-root:focus {
+    z-index: 25;
+    transform: scale(1.075);
+    background-color: transparent;
+    outline: none; }
+  .hw-pagination-button-root:active {
+    outline: none;
+    background-color: transparent; }
+  .hw-pagination-button-root.disabled {
+    color: var(--color-disabled);
+    cursor: not-allowed;
+    opacity: 0.8; }
+    .hw-pagination-button-root.disabled:hover, .hw-pagination-button-root.disabled:focus {
+      z-index: 0;
+      transform: scale(1); }
+  .hw-pagination-button-root.active {
+    border: 0.5px solid white;
+    color: white;
+    font-size: 15px;
+    font-weight: bolder;
+    outline: none;
+    text-shadow: 0px 1px 1px black;
+    box-shadow: 0px 1px 1px 0px #c3c3c3, 1px 0px 1px -1px black, -1px 0px 1px -1px black, 0px -1px 1px -1px black;
+    transform: scale(1.075);
+    z-index: 15; }
+    .hw-pagination-button-root.active:hover, .hw-pagination-button-root.active:focus {
+      outline: none; }
+  .hw-pagination-button-root.primary {
+    background-color: var(--color-primary);
+    color: white; }
+  .hw-pagination-button-root.secondary {
+    background-color: var(--color-secondary);
+    color: white; }
+  .hw-pagination-button-root.success {
+    background-color: var(--color-success);
+    color: white; }
+  .hw-pagination-button-root.info {
+    background-color: var(--color-info);
+    color: white; }
+  .hw-pagination-button-root.danger {
+    background-color: var(--color-danger);
+    color: white; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*hw colors and shadows start */
+/*hw input start*/
+/*button constants end*/
+/*@mixin default-application-gradient{
+  background: #6d6e6d;
+  background: -moz-linear-gradient(top,  #55656b 0%, #2e383ee0 100%);
+  background: -webkit-linear-gradient(top, #55656b 0%,#2e383ee0 100%);
+  background: linear-gradient(to bottom,  #55656b 0%,#2e383ee0 100%);
+}*/
+/*hw colors and shadows start */
+/*hw input start*/
+/*button constants end*/
+.hw-dialog-centered-root {
+  position: fixed;
+  z-index: 3000;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px; }
+
+.hw-dialog-shadow {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  -webkit-tap-highlight-color: transparent; }
+
+@-webkit-keyframes dialog-anim {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(1.1, 1.1, 1); }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1); } }
+@keyframes dialog-anim {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(1.1, 1.1, 1);
+    transform: scale3d(1.1, 1.1, 1); }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1); } }
+.hw-dialog {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-animation: dialog-anim 0.3s ease-in-out;
+  animation: dialog-anim  0.3s ease-in-out; }
+
+.hw-dialog-root {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+  z-index: 51;
+  background: #FEFEFE;
+  min-width: 400px;
+  min-height: 150px;
+  position: relative;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column; }
+  @media screen and (max-width: 500px) {
+    .hw-dialog-root {
+      min-width: 95%;
+      width: 95%;
+      margin: auto; } }
+  .hw-dialog-root .hw-dialog-header {
+    text-align: center;
+    margin: 0px 0px;
+    min-height: 30px;
+    display: flex;
+    padding: 0px 10px;
+    align-items: center;
+    flex: 0.25;
+    background: linear-gradient(to bottom, rgba(85, 95, 101, 0.88) 27%, #222a30 67%);
+    color: white;
+    text-shadow: 0px 1px 1px black;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.4px; }
+    .hw-dialog-root .hw-dialog-header.error {
+      text-align: left;
+      color: var(--color-danger);
+      text-align: left; }
+    .hw-dialog-root .hw-dialog-header.info {
+      text-align: left;
+      color: var(--color-primary); }
+    .hw-dialog-root .hw-dialog-header.question {
+      color: white;
+      text-shadow: 0px 1px 1px black;
+      font-weight: 500;
+      text-transform: uppercase;
+      font-size: 12px; }
+    .hw-dialog-root .hw-dialog-header.hw-dialog-logo {
+      text-align: left;
+      margin-left: 20px;
+      padding-top: 10px; }
+      .hw-dialog-root .hw-dialog-header.hw-dialog-logo > img {
+        max-width: 70px;
+        max-height: 40px; }
+    .hw-dialog-root .hw-dialog-header .hw-close-dialog {
+      color: white;
+      font-size: 20px;
+      position: absolute;
+      right: 10px;
+      top: 1px;
+      cursor: pointer; }
+      .hw-dialog-root .hw-dialog-header .hw-close-dialog:hover {
+        transform: scale(1.07); }
+      .hw-dialog-root .hw-dialog-header .hw-close-dialog > svg {
+        -webkit-filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.7));
+        filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.7)); }
+  .hw-dialog-root .hw-dialog-content {
+    font-size: 16px;
+    color: var(--color-primary);
+    word-break: break-word;
+    white-space: pre-line;
+    z-index: 2;
+    text-align: center;
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 0px 1px 1px white; }
+    .hw-dialog-root .hw-dialog-content.error {
+      color: #8a181c; }
+  .hw-dialog-root .hw-dialog-sub-content {
+    text-align: center;
+    margin: 10px 0px;
+    min-height: 40px;
+    position: relative;
+    color: var(--color-primary);
+    font-size: 12px; }
+  .hw-dialog-root .hw-dialog-action {
+    margin: 10px auto;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; }
+    .hw-dialog-root .hw-dialog-action > button:not(last-child) {
+      margin-right: 10px; }
+  .hw-dialog-root .hw-dialog-icon {
+    position: absolute;
+    right: 3%;
+    bottom: 10px; }
+    .hw-dialog-root .hw-dialog-icon .hw-info {
+      font-size: 60px;
+      color: var(--color-primary);
+      opacity: 0.4; }
+    .hw-dialog-root .hw-dialog-icon .hw-success {
+      font-size: 60px;
+      color: var(--color-success);
+      opacity: 0.2; }
+    .hw-dialog-root .hw-dialog-icon .hw-error {
+      color: var(--color-danger);
+      font-size: 60px;
+      opacity: 0.2; }
+    .hw-dialog-root .hw-dialog-icon.info svg {
+      font-size: 60px;
+      color: var(--color-primary);
+      opacity: 0.1; }
+    .hw-dialog-root .hw-dialog-icon.question svg {
+      color: var(--color-primary);
+      font-size: 60px;
+      opacity: 0.1; }
+    .hw-dialog-root .hw-dialog-icon.error svg {
+      color: var(--color-danger);
+      font-size: 60px;
+      opacity: 0.1; }
+  .hw-dialog-root.error {
+    color: inherit;
+    box-shadow: 1px 6px 7px -4px #a8a8a8; }
+    .hw-dialog-root.error .hw-dialog-header .hw-close-dialog > svg {
+      color: var(--color-danger); }
+
+.dialog-show {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  width: 90vw;
+  height: 100vh;
+  padding: 0px 30px; }
+  .dialog-show > div {
+    padding: 10px;
+    align-items: flex-start;
+    justify-content: flex-start; }
+  .dialog-show .hw-dialog {
+    height: 350px; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*hw colors and shadows start */
+/*hw input start*/
+/*button constants end*/
+/*@mixin default-application-gradient{
+  background: #6d6e6d;
+  background: -moz-linear-gradient(top,  #55656b 0%, #2e383ee0 100%);
+  background: -webkit-linear-gradient(top, #55656b 0%,#2e383ee0 100%);
+  background: linear-gradient(to bottom,  #55656b 0%,#2e383ee0 100%);
+}*/
+/*hw colors and shadows start */
+/*hw input start*/
+/*button constants end*/
+.hw-root {
+  display: block; }
+@keyframes animation-hw {
+  0% {
+    transform: scale(1);
+    opacity: 1; }
+  45% {
+    transform: scale(0.1);
+    opacity: 0.7; }
+  80% {
+    transform: scale(1);
+    opacity: 1; } }
+  .hw-root .hw-1 {
+    background-color: #102d53;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    margin: 2px;
+    border-radius: 100%;
+    animation: 0.75s cubic-bezier(0.2, 0.68, 0.18, 1.08) 0.12s infinite normal both running animation-hw; }
+  .hw-root .hw-2 {
+    background-color: #102d53;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    margin: 2px;
+    border-radius: 100%;
+    animation: 0.75s cubic-bezier(0.2, 0.68, 0.18, 1.08) 0.24s infinite normal both running animation-hw; }
+  .hw-root .hw-3 {
+    background-color: #102d53;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    margin: 2px;
+    border-radius: 100%;
+    animation: 0.75s cubic-bezier(0.2, 0.68, 0.18, 1.08) 0.36s infinite normal both running animation-hw; }
+
+.hw-back-drop {
+  background: rgba(164, 164, 164, 0.18);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9001; }
+
+.hw-spinner {
+  position: absolute; }
+  .hw-spinner > svg {
+    filter: drop-shadow(-2px 2px 2px rgba(0, 0, 0, 0.9));
+    color: var(--color-primary);
+    opacity: 0.9; }
+
+.hw-spinner-center {
+  position: absolute;
+  background: rgba(192, 192, 192, 0.2);
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: space-around; }
+  .hw-spinner-center .hw-spinner-center-inner > svg {
+    filter: drop-shadow(-1px 2px 2px #333);
+    color: var(--color-secondary); }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*hw colors and shadows start */
+/*hw input start*/
+/*button constants end*/
+/*@mixin default-application-gradient{
+  background: #6d6e6d;
+  background: -moz-linear-gradient(top,  #55656b 0%, #2e383ee0 100%);
+  background: -webkit-linear-gradient(top, #55656b 0%,#2e383ee0 100%);
+  background: linear-gradient(to bottom,  #55656b 0%,#2e383ee0 100%);
+}*/
+/*hw colors and shadows start */
+/*hw input start*/
+/*button constants end*/
+.hw-registration-dialog-root {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: 51;
+  background: #FEFEFE;
+  position: relative;
+  min-width: 300px;
+  min-height: 320px;
+  padding: 0px 30px; }
+  .hw-registration-dialog-root .hw-registration-dialog-action {
+    position: absolute;
+    bottom: 20px;
+    left: 17%; }
+  .hw-registration-dialog-root .hw-registration-dialog-sub-content {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0px;
+    min-height: 40px;
+    position: relative;
+    color: var(--color-primary);
+    font-size: 12px; }
+  .hw-registration-dialog-root .hw-registration-dialog-header {
+    text-align: center;
+    margin: 20px 0px 10px;
+    min-height: 40px;
+    position: relative;
+    color: #006100; }
+    .hw-registration-dialog-root .hw-registration-dialog-header.hw-dialog-logo {
+      text-align: left;
+      margin-left: 20px;
+      padding-top: 10px; }
+      .hw-registration-dialog-root .hw-registration-dialog-header.hw-dialog-logo > img {
+        max-width: 70px;
+        max-height: 40px; }
+  .hw-registration-dialog-root .hw-registration-dialog-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    flex-direction: column;
+    font-size: 16px;
+    color: var(--color-primary);
+    font-weight: bold;
+    word-break: break-word;
+    text-transform: uppercase;
+    white-space: pre-line;
+    z-index: 2;
+    text-align: center; }
+  .hw-registration-dialog-root .hw-registration-dialog-icon {
+    padding: 5px 0px 30px;
+    flex: 1; }
+    .hw-registration-dialog-root .hw-registration-dialog-icon .hw-success {
+      font-size: 80px;
+      color: var(--color-success);
+      opacity: 0.5; }
+    .hw-registration-dialog-root .hw-registration-dialog-icon .hw-error {
+      color: var(--color-danger);
+      font-size: 80px;
+      opacity: 0.8; }
+  .hw-registration-dialog-root.error .hw-registration-dialog-header {
+    color: var(--color-danger); }
+  .hw-registration-dialog-root.error .hw-registration-dialog-content {
+    color: var(--color-danger); }
+  .hw-registration-dialog-root.error .hw-registration-dialog-sub-content {
+    color: var(--color-danger); }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*hw colors and shadows start */
+/*hw input start*/
+/*button constants end*/
+/*@mixin default-application-gradient{
+  background: #6d6e6d;
+  background: -moz-linear-gradient(top,  #55656b 0%, #2e383ee0 100%);
+  background: -webkit-linear-gradient(top, #55656b 0%,#2e383ee0 100%);
+  background: linear-gradient(to bottom,  #55656b 0%,#2e383ee0 100%);
+}*/
+/*hw colors and shadows start */
+/*hw input start*/
+/*button constants end*/
+.hw-activation-dialog-root {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: 51;
+  background: #FEFEFE;
+  min-width: 300px;
+  min-height: 320px;
+  position: relative;
+  padding: 0px 30px; }
+  .hw-activation-dialog-root .hw-activation-dialog-action {
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+    right: 0; }
+  .hw-activation-dialog-root .hw-activation-dialog-header {
+    text-align: center;
+    margin: 20px 0px 10px;
+    min-height: 40px;
+    position: relative;
+    color: #006100; }
+    .hw-activation-dialog-root .hw-activation-dialog-header.hw-dialog-logo {
+      text-align: left;
+      margin-left: 20px;
+      padding-top: 10px; }
+      .hw-activation-dialog-root .hw-activation-dialog-header.hw-dialog-logo > img {
+        max-width: 70px;
+        max-height: 40px; }
+  .hw-activation-dialog-root .hw-activation-dialog-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    flex-direction: column;
+    font-size: 16px;
+    color: var(--color-primary);
+    font-weight: bold;
+    word-break: break-word;
+    text-transform: uppercase;
+    white-space: pre-line;
+    z-index: 2;
+    text-align: center; }
+  .hw-activation-dialog-root .hw-activation-dialog-icon {
+    /* position: absolute;
+     left: 0;
+     right: 0;
+     top: 80px;*/
+    padding: 5px 0px 30px;
+    flex: 1; }
+    .hw-activation-dialog-root .hw-activation-dialog-icon .hw-success {
+      font-size: 80px;
+      color: var(--color-success);
+      opacity: 0.5; }
+    .hw-activation-dialog-root .hw-activation-dialog-icon .hw-error {
+      color: var(--color-danger);
+      font-size: 80px;
+      opacity: 0.8; }
+  .hw-activation-dialog-root.error .hw-activation-dialog-header {
+    color: var(--color-danger); }
+  .hw-activation-dialog-root.error .hw-activation-dialog-content {
+    color: var(--color-danger); }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+.hw-app-layout-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 100%;
+  height: 100%; }
+  .hw-app-layout-main .hw-app-layout-main-root {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    position: relative;
+    height: 100%; }
+    .hw-app-layout-main .hw-app-layout-main-root .hw-nav-bar-main {
+      box-shadow: 10px 0px 18px -12px #747474;
+      height: calc(100% + 1px);
+      color: #3f3f3f;
+      cursor: pointer;
+      transition: all 0.4s ease-in-out;
+      background: #ffffff;
+      background: -moz-linear-gradient(top, #ffffff 0%, #e5e5e5 100%);
+      background: -webkit-linear-gradient(top, #ffffff 0%, #e5e5e5 100%);
+      background: linear-gradient(to bottom, #ffffff 20%, #e5e5e5 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 );
+      margin-left: 0px; }
+      .hw-app-layout-main .hw-app-layout-main-root .hw-nav-bar-main.mini {
+        width: 57px;
+        transform: translateX(0px); }
+        .hw-app-layout-main .hw-app-layout-main-root .hw-nav-bar-main.mini .hw-bar-list-item {
+          text-align: center;
+          justify-content: center;
+          padding-left: 0;
+          padding-right: 0;
+          min-width: 0; }
+          .hw-app-layout-main .hw-app-layout-main-root .hw-nav-bar-main.mini .hw-bar-list-item > svg {
+            margin-right: 0; }
+            .hw-app-layout-main .hw-app-layout-main-root .hw-nav-bar-main.mini .hw-bar-list-item > svg.hw-list-item-caret {
+              display: none; }
+          .hw-app-layout-main .hw-app-layout-main-root .hw-nav-bar-main.mini .hw-bar-list-item .label {
+            display: none; }
+          .hw-app-layout-main .hw-app-layout-main-root .hw-nav-bar-main.mini .hw-bar-list-item .hw-list-item-caret {
+            display: none; }
+        .hw-app-layout-main .hw-app-layout-main-root .hw-nav-bar-main.mini .hw-app-layout-main-data {
+          margin-left: 60px; }
+      .hw-app-layout-main .hw-app-layout-main-root .hw-nav-bar-main.opened {
+        width: 200px;
+        transform: translateX(0px); }
+        .hw-app-layout-main .hw-app-layout-main-root .hw-nav-bar-main.opened .hw-nav-bar-main-close {
+          display: none; }
+      .hw-app-layout-main .hw-app-layout-main-root .hw-nav-bar-main.hide {
+        transform: translateX(-65px); }
+        .hw-app-layout-main .hw-app-layout-main-root .hw-nav-bar-main.hide.opened {
+          transform: translateX(-200px); }
+      .hw-app-layout-main .hw-app-layout-main-root .hw-nav-bar-main .hw-bar-list-main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 8px 0;
+        color: inherit; }
+        .hw-app-layout-main .hw-app-layout-main-root .hw-nav-bar-main .hw-bar-list-main .hw-bar-list-item {
+          color: inherit;
+          cursor: pointer;
+          min-height: 48px;
+          width: 100%;
+          padding: 8px;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          flex-wrap: wrap; }
+          .hw-app-layout-main .hw-app-layout-main-root .hw-nav-bar-main .hw-bar-list-main .hw-bar-list-item > svg {
+            filter: drop-shadow(-2px 2px 0px white);
+            margin-right: 0;
+            font-size: 14px; }
+          .hw-app-layout-main .hw-app-layout-main-root .hw-nav-bar-main .hw-bar-list-main .hw-bar-list-item .label {
+            color: inherit;
+            margin-left: 16px;
+            width: auto;
+            min-width: 0;
+            max-width: 100%;
+            text-shadow: 1px 1px white;
+            padding-left: 10px;
+            flex: 1; }
+            .hw-app-layout-main .hw-app-layout-main-root .hw-nav-bar-main .hw-bar-list-main .hw-bar-list-item .label a {
+              text-decoration: none; }
+          .hw-app-layout-main .hw-app-layout-main-root .hw-nav-bar-main .hw-bar-list-main .hw-bar-list-item:hover {
+            z-index: 300;
+            box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(60, 72, 88, 0.4);
+            text-decoration: none; }
+          .hw-app-layout-main .hw-app-layout-main-root .hw-nav-bar-main .hw-bar-list-main .hw-bar-list-item.active {
+            background: rgba(239, 239, 239, 0.74);
+            border-radius: 3px; }
+            .hw-app-layout-main .hw-app-layout-main-root .hw-nav-bar-main .hw-bar-list-main .hw-bar-list-item.active > svg {
+              color: var(--color-secondary);
+              filter: drop-shadow(-2px 2px 0px white); }
+      .hw-app-layout-main .hw-app-layout-main-root .hw-nav-bar-main .hw-nav-bar-main-close {
+        position: fixed;
+        display: block;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10001; }
+        .hw-app-layout-main .hw-app-layout-main-root .hw-nav-bar-main .hw-nav-bar-main-close.show {
+          display: flex;
+          top: 15px;
+          right: -15px;
+          z-index: 999;
+          cursor: pointer;
+          border-radius: 100%;
+          width: 30px;
+          height: 30px;
+          border: 1px solid transparent;
+          background: #2e383e;
+          justify-content: center;
+          align-items: center; }
+          .hw-app-layout-main .hw-app-layout-main-root .hw-nav-bar-main .hw-nav-bar-main-close.show > svg {
+            display: block; }
+        .hw-app-layout-main .hw-app-layout-main-root .hw-nav-bar-main .hw-nav-bar-main-close > svg {
+          display: none;
+          color: white; }
+      @media screen and (max-width: 500px) {
+        .hw-app-layout-main .hw-app-layout-main-root .hw-nav-bar-main {
+          transition: all 0.3s ease-in-out;
+          margin-bottom: 2px;
+          opacity: 0.7;
+          position: absolute;
+          z-index: 1001;
+          margin-left: 0; }
+          .hw-app-layout-main .hw-app-layout-main-root .hw-nav-bar-main .hw-bar-list {
+            position: relative;
+            right: 0;
+            top: 45px; }
+          .hw-app-layout-main .hw-app-layout-main-root .hw-nav-bar-main.mini, .hw-app-layout-main .hw-app-layout-main-root .hw-nav-bar-main.opened {
+            width: 200px; }
+            .hw-app-layout-main .hw-app-layout-main-root .hw-nav-bar-main.mini.hide, .hw-app-layout-main .hw-app-layout-main-root .hw-nav-bar-main.opened.hide {
+              width: 0;
+              transform: translateX(-200px); }
+            .hw-app-layout-main .hw-app-layout-main-root .hw-nav-bar-main.mini .hw-bar-list-item > .label, .hw-app-layout-main .hw-app-layout-main-root .hw-nav-bar-main.opened .hw-bar-list-item > .label {
+              display: flex; }
+          .hw-app-layout-main .hw-app-layout-main-root .hw-nav-bar-main .hw-nav-bar-main-close {
+            display: none; }
+            .hw-app-layout-main .hw-app-layout-main-root .hw-nav-bar-main .hw-nav-bar-main-close.show {
+              display: none; } }
+    .hw-app-layout-main .hw-app-layout-main-root .hw-app-layout-main-data.mini {
+      width: calc(100% - 60px); }
+      @media screen and (max-width: 500px) {
+        .hw-app-layout-main .hw-app-layout-main-root .hw-app-layout-main-data.mini {
+          width: 100%; } }
+    .hw-app-layout-main .hw-app-layout-main-root .hw-app-layout-main-data.opened {
+      width: calc(100% - 200px); }
+      @media screen and (max-width: 500px) {
+        .hw-app-layout-main .hw-app-layout-main-root .hw-app-layout-main-data.opened {
+          width: 100%; } }
+    .hw-app-layout-main .hw-app-layout-main-root .hw-app-layout-main-data.hide {
+      width: calc(100%); }
+      @media screen and (max-width: 500px) {
+        .hw-app-layout-main .hw-app-layout-main-root .hw-app-layout-main-data.hide {
+          width: 100%; } }
+  .hw-app-layout-main .hw-app-footer {
+    background: #2e383ee0;
+    color: #e7e7e7;
+    z-index: 1001; }
+
+.hw-app-layout-main-data {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.hw-collapse-container {
+  display: none;
+  padding: 3px 0px;
+  width: 100%;
+  transition: height 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; }
+  .hw-collapse-container.active {
+    display: block;
+    padding-left: 10px; }
+  .hw-collapse-container .hw-collapse-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%; }
+    .hw-collapse-container .hw-collapse-wrapper .hw-bar-list-item {
+      margin-top: 2px; }
+
+.hw-list-item-caret {
+  top: 3px;
+  color: inherit;
+  float: right;
+  width: 30px;
+  height: 24px;
+  opacity: 0;
+  position: inherit;
+  text-align: center;
+  margin-right: -5px;
+  vertical-align: middle;
+  display: inline-block;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  user-select: none;
+  touch-action: none;
+  transition: all 0.3s ease-in; }
+  .hw-list-item-caret.active {
+    opacity: 0.8; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*hw colors and shadows start */
+/*hw input start*/
+/*button constants end*/
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*hw colors and shadows start */
+/*hw input start*/
+/*button constants end*/
+/*@mixin default-application-gradient{
+  background: #6d6e6d;
+  background: -moz-linear-gradient(top,  #55656b 0%, #2e383ee0 100%);
+  background: -webkit-linear-gradient(top, #55656b 0%,#2e383ee0 100%);
+  background: linear-gradient(to bottom,  #55656b 0%,#2e383ee0 100%);
+}*/
+.hw-table-root {
+  border-color: #eee;
+  border-width: 0px; }
+  .hw-table-root.hw-tbl-separator-horizontal .hw-table-data-row {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: inherit; }
+  .hw-table-root.hw-tbl-separator-horizontal .hw-table-header-root {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: inherit;
+    background-color: #2e383ee0; }
+  .hw-table-root.hw-tbl-separator-vertical .hw-table-data-cell:not(:last-child) {
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: inherit; }
+  .hw-table-root.hw-tbl-separator-vertical .hw-table-header-th:not(:last-child) {
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: inherit; }
+  .hw-table-root.hw-tbl-separator-cell .hw-table-data-cell {
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-right-color: inherit;
+    border-bottom-color: inherit; }
+    .hw-table-root.hw-tbl-separator-cell .hw-table-data-cell:last-child {
+      border-right-width: 0px; }
+  .hw-table-root.hw-tbl-separator-cell .hw-table-header-th {
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-right-color: inherit;
+    border-bottom-color: inherit; }
+    .hw-table-root.hw-tbl-separator-cell .hw-table-header-th:last-child {
+      border-right-width: 0px; }
+
+.hw-table-header-tr {
+  background: #202e35;
+  background: -moz-linear-gradient(top, rgba(88, 99, 105, 0.88) 30%, #202e35 67%);
+  background: -webkit-linear-gradient(top, rgba(86, 97, 103, 0.88) 30%, #283036 67%);
+  background: linear-gradient(to bottom, rgba(85, 95, 101, 0.88) 27%, #222a30 67%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3f4c6b', endColorstr='#2e383e',GradientType=0 );
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px; }
+
+.hw-table-cell-action {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  min-width: 60px; }
+  .hw-table-cell-action svg {
+    cursor: pointer; }
+    .hw-table-cell-action svg:hover {
+      transform: scale(1.2); }
+
+.hw-table-data-row:nth-child(odd) {
+  background-color: #f2f2f2; }
+  .hw-table-data-row:nth-child(odd):hover {
+    background-color: #e8e8e8;
+    cursor: pointer; }
+.hw-table-data-row:hover {
+  background-color: #fbfbfb;
+  cursor: pointer; }
+
+.hw-table-header-th {
+  text-align: center;
+  vertical-align: middle;
+  padding: 3px 5px; }
+
+.hw-table-data-cell {
+  text-align: center;
+  color: #475054;
+  vertical-align: middle;
+  font-weight: normal;
+  padding: 2px 4px; }
+  .hw-table-data-cell.hw-table-cell-center {
+    padding: 3px 8px; }
+
+.hw-table-header-th-basic {
+  position: relative;
+  padding: 3px; }
+  .hw-table-header-th-basic > div {
+    display: inline-block; }
+
+.hw-table-header-th-basic-sort {
+  position: relative;
+  float: right;
+  opacity: 0.5;
+  cursor: pointer; }
+  .hw-table-header-th-basic-sort > div {
+    transform: scale(1.1);
+    position: absolute;
+    right: 2px;
+    top: 0px; }
+  .hw-table-header-th-basic-sort.hw-table-header-th-basic-sorted {
+    opacity: 1;
+    color: #eeeeee;
+    filter: drop-shadow(0px 1px 0px black); }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*hw colors and shadows start */
+/*hw input start*/
+/*button constants end*/
+/*@mixin default-application-gradient{
+  background: #6d6e6d;
+  background: -moz-linear-gradient(top,  #55656b 0%, #2e383ee0 100%);
+  background: -webkit-linear-gradient(top, #55656b 0%,#2e383ee0 100%);
+  background: linear-gradient(to bottom,  #55656b 0%,#2e383ee0 100%);
+}*/
+.container {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+
+.hw-flex-columns {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
+
+.hw-flex-rows {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+
+.grid {
+  position: relative;
+  width: 100%;
+  margin-bottom: 6px; }
+  .grid.flex-align-items-center {
+    -webkit-align-items: center;
+    align-items: center; }
+  .grid.flex-align-items-start {
+    -webkit-align-items: flex-start;
+    align-items: flex-start; }
+  .grid.flex-align-items-end {
+    -webkit-align-items: flex-end;
+    align-items: flex-end; }
+  .grid.flex-direction-column {
+    -webkit-flex-direction: column;
+    flex-direction: column; }
+  .grid.flex-direction-column-reverse {
+    -webkit-flex-direction: column-reverse;
+    flex-direction: column-reverse; }
+  .grid.flex-direction-row-reverse {
+    -webkit-flex-direction: row-reverse;
+    flex-direction: row-reverse; }
+  .grid.flex-justify-content-space-between {
+    -webkit-justify-content: space-between;
+    justify-content: space-between; }
+  .grid.flex-justify-content-space-around {
+    -webkit-justify-content: space-around;
+    justify-content: space-around; }
+  .grid.flex-justify-content-center {
+    -webkit-justify-content: center;
+    justify-content: center; }
+  .grid.flex-justify-content-flex-start {
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start; }
+  .grid.flex-justify-content-flex-end {
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end; }
+  @media screen and (max-width: 500px) {
+    .grid {
+      margin-bottom: 5px; } }
+
+.grid-1 {
+  -ms-flex: 0 0 8.333333%;
+  flex: 0 0 8.333333%;
+  max-width: 8.333333%; }
+
+.grid-2 {
+  -ms-flex: 0 0 16.666667%;
+  flex: 0 0 16.666667%;
+  max-width: 16.666667%; }
+
+.grid-3 {
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
+  max-width: 25%; }
+
+.grid-4 {
+  -ms-flex: 0 0 33.333333%;
+  flex: 0 0 33.333333%;
+  max-width: 33.333333%; }
+
+.grid-5 {
+  -ms-flex: 0 0 41.666667%;
+  flex: 0 0 41.666667%;
+  max-width: 41.666667%; }
+
+.grid-6 {
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+  max-width: 50%; }
+
+.grid-7 {
+  -ms-flex: 0 0 58.333333%;
+  flex: 0 0 58.333333%;
+  max-width: 58.333333%; }
+
+.grid-8 {
+  -ms-flex: 0 0 66.666667%;
+  flex: 0 0 66.666667%;
+  max-width: 66.666667%; }
+
+.grid-9 {
+  -ms-flex: 0 0 75%;
+  flex: 0 0 75%;
+  max-width: 75%; }
+
+.grid-10 {
+  -ms-flex: 0 0 83.333333%;
+  flex: 0 0 83.333333%;
+  max-width: 83.333333%; }
+
+.grid-11 {
+  -ms-flex: 0 0 91.666667%;
+  flex: 0 0 91.666667%;
+  max-width: 91.666667%; }
+
+.grid-12 {
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%; }
+
+.grid-space-1 {
+  padding-left: 4px;
+  padding-right: 4px; }
+
+.grid-space-2 {
+  padding-left: 5px;
+  padding-right: 5px; }
+
+.grid-space-3 {
+  padding-left: 6px;
+  padding-right: 6px; }
+
+.grid-space-4 {
+  padding-left: 7px;
+  padding-right: 7px; }
+
+.grid-space-5 {
+  padding-left: 8px;
+  padding-right: 8px; }
+
+.grid-space-6 {
+  padding-left: 9px;
+  padding-right: 9px; }
+
+.grid-space-7 {
+  padding-left: 10px;
+  padding-right: 10px; }
+
+.grid-space-8 {
+  padding-left: 12px;
+  padding-right: 12px; }
+
+.grid-space-9 {
+  padding-left: 14px;
+  padding-right: 14px; }
+
+.grid-space-10 {
+  padding-left: 16px;
+  padding-right: 16px; }
+
+@media (min-width: 1150px) {
+  .grid-lg-1 {
+    -ms-flex: 0 0 8.333333%;
+    flex: 0 0 8.333333%;
+    max-width: 8.333333%; }
+
+  .grid-lg-2 {
+    -ms-flex: 0 0 16.666667%;
+    flex: 0 0 16.666667%;
+    max-width: 16.666667%; }
+
+  .grid-lg-3 {
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%; }
+
+  .grid-lg-4 {
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%; }
+
+  .grid-lg-5 {
+    -ms-flex: 0 0 41.666667%;
+    flex: 0 0 41.666667%;
+    max-width: 41.666667%; }
+
+  .grid-lg-6 {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%; }
+
+  .grid-lg-7 {
+    -ms-flex: 0 0 58.333333%;
+    flex: 0 0 58.333333%;
+    max-width: 58.333333%; }
+
+  .grid-lg-8 {
+    -ms-flex: 0 0 66.666667%;
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%; }
+
+  .grid-lg-9 {
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 75%; }
+
+  .grid-lg-10 {
+    -ms-flex: 0 0 83.333333%;
+    flex: 0 0 83.333333%;
+    max-width: 83.333333%; }
+
+  .grid-lg-11 {
+    -ms-flex: 0 0 91.666667%;
+    flex: 0 0 91.666667%;
+    max-width: 91.666667%; }
+
+  .grid-lg-12 {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%; }
+
+  .grid-space-lg-1 {
+    padding-left: 8px;
+    padding-right: 8px; }
+
+  .grid-space-lg-2 {
+    padding-left: 12px;
+    padding-right: 12px; }
+
+  .grid-space-lg-3 {
+    padding-left: 16px;
+    padding-right: 16px; }
+
+  .grid-space-lg-4 {
+    padding-left: 20px;
+    padding-right: 20px; }
+
+  .grid-space-lg-5 {
+    padding-left: 24px;
+    padding-right: 24px; }
+
+  .grid-space-lg-6 {
+    padding-left: 28px;
+    padding-right: 28px; }
+
+  .grid-space-lg-7 {
+    padding-left: 32px;
+    padding-right: 32px; }
+
+  .grid-space-lg-8 {
+    padding-left: 36px;
+    padding-right: 36px; }
+
+  .grid-space-lg-9 {
+    padding-left: 40px;
+    padding-right: 40px; }
+
+  .grid-space-lg-10 {
+    padding-left: 45px;
+    padding-right: 45px; } }
+@media (min-width: 770px) {
+  .grid-md-1 {
+    -ms-flex: 0 0 8.333333%;
+    flex: 0 0 8.333333%;
+    max-width: 8.333333%; }
+
+  .grid-md-2 {
+    -ms-flex: 0 0 16.666667%;
+    flex: 0 0 16.666667%;
+    max-width: 16.666667%; }
+
+  .grid-md-3 {
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%; }
+
+  .grid-md-4 {
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%; }
+
+  .grid-md-5 {
+    -ms-flex: 0 0 41.666667%;
+    flex: 0 0 41.666667%;
+    max-width: 41.666667%; }
+
+  .grid-md-6 {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%; }
+
+  .grid-md-7 {
+    -ms-flex: 0 0 58.333333%;
+    flex: 0 0 58.333333%;
+    max-width: 58.333333%; }
+
+  .grid-md-8 {
+    -ms-flex: 0 0 66.666667%;
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%; }
+
+  .grid-md-9 {
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 75%; }
+
+  .grid-md-10 {
+    -ms-flex: 0 0 83.333333%;
+    flex: 0 0 83.333333%;
+    max-width: 83.333333%; }
+
+  .grid-md-11 {
+    -ms-flex: 0 0 91.666667%;
+    flex: 0 0 91.666667%;
+    max-width: 91.666667%; }
+
+  .grid-md-12 {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%; }
+
+  .grid-space-md-1 {
+    padding-left: 6px;
+    padding-right: 6px; }
+
+  .grid-space-md-2 {
+    padding-left: 8px;
+    padding-right: 8px; }
+
+  .grid-space-md-3 {
+    padding-left: 10px;
+    padding-right: 10px; }
+
+  .grid-space-md-4 {
+    padding-left: 12px;
+    padding-right: 12px; }
+
+  .grid-space-md-5 {
+    padding-left: 14px;
+    padding-right: 14px; }
+
+  .grid-space-md-6 {
+    padding-left: 18px;
+    padding-right: 18px; }
+
+  .grid-space-md-7 {
+    padding-left: 20px;
+    padding-right: 20px; }
+
+  .grid-space-md-8 {
+    padding-left: 24px;
+    padding-right: 24px; }
+
+  .grid-space-md-9 {
+    padding-left: 28px;
+    padding-right: 28px; }
+
+  .grid-space-md-10 {
+    padding-left: 32px;
+    padding-right: 32px; } }
+@media (max-width: 760px) {
+  .grid-sm-1 {
+    -ms-flex: 0 0 8.333333%;
+    flex: 0 0 8.333333%;
+    max-width: 8.333333%; }
+
+  .grid-sm-2 {
+    -ms-flex: 0 0 16.666667%;
+    flex: 0 0 16.666667%;
+    max-width: 16.666667%; }
+
+  .grid-sm-3 {
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%; }
+
+  .grid-sm-4 {
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%; }
+
+  .grid-sm-5 {
+    -ms-flex: 0 0 41.666667%;
+    flex: 0 0 41.666667%;
+    max-width: 41.666667%; }
+
+  .grid-sm-6 {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%; }
+
+  .grid-sm-7 {
+    -ms-flex: 0 0 58.333333%;
+    flex: 0 0 58.333333%;
+    max-width: 58.333333%; }
+
+  .grid-sm-8 {
+    -ms-flex: 0 0 66.666667%;
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%; }
+
+  .grid-sm-9 {
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 75%; }
+
+  .grid-sm-10 {
+    -ms-flex: 0 0 83.333333%;
+    flex: 0 0 83.333333%;
+    max-width: 83.333333%; }
+
+  .grid-sm-11 {
+    -ms-flex: 0 0 91.666667%;
+    flex: 0 0 91.666667%;
+    max-width: 91.666667%; }
+
+  .grid-sm-12 {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%; }
+
+  .grid-space-sm-1 {
+    padding-left: 6px;
+    padding-right: 6px; }
+
+  .grid-space-sm-2 {
+    padding-left: 8px;
+    padding-right: 8px; }
+
+  .grid-space-sm-3 {
+    padding-left: 10px;
+    padding-right: 10px; }
+
+  .grid-space-sm-4 {
+    padding-left: 12px;
+    padding-right: 12px; }
+
+  .grid-space-sm-5 {
+    padding-left: 14px;
+    padding-right: 14px; }
+
+  .grid-space-sm-6 {
+    padding-left: 18px;
+    padding-right: 18px; }
+
+  .grid-space-sm-7 {
+    padding-left: 20px;
+    padding-right: 20px; }
+
+  .grid-space-sm-8 {
+    padding-left: 24px;
+    padding-right: 24px; }
+
+  .grid-space-sm-9 {
+    padding-left: 28px;
+    padding-right: 28px; }
+
+  .grid-space-sm-10 {
+    padding-left: 32px;
+    padding-right: 32px; } }
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*hw colors and shadows start */
+/*hw input start*/
+/*button constants end*/
+/*@mixin default-application-gradient{
+  background: #6d6e6d;
+  background: -moz-linear-gradient(top,  #55656b 0%, #2e383ee0 100%);
+  background: -webkit-linear-gradient(top, #55656b 0%,#2e383ee0 100%);
+  background: linear-gradient(to bottom,  #55656b 0%,#2e383ee0 100%);
+}*/
+.hw-grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 15px; }
+  .hw-grid .hw-grid-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    border: 1px solid #eee;
+    line-height: 1.5; }
+    .hw-grid .hw-grid-row:nth-child(even) {
+      background-color: #f2f2f2; }
+      .hw-grid .hw-grid-row:nth-child(even):hover {
+        background-color: #e8e8e8;
+        cursor: pointer; }
+    .hw-grid .hw-grid-row:hover {
+      background-color: #fbfbfb;
+      cursor: pointer; }
+    .hw-grid .hw-grid-row.hw-grid-header {
+      border: 1px solid #ced4da;
+      border-radius: 3px; }
+      .hw-grid .hw-grid-row.hw-grid-header.error {
+        border-color: var(--color-error); }
+      .hw-grid .hw-grid-row.hw-grid-header > div {
+        background: #202e35;
+        background: -moz-linear-gradient(top, rgba(88, 99, 105, 0.88) 30%, #202e35 67%);
+        background: -webkit-linear-gradient(top, rgba(86, 97, 103, 0.88) 30%, #283036 67%);
+        background: linear-gradient(to bottom, rgba(85, 95, 101, 0.88) 27%, #222a30 67%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3f4c6b', endColorstr='#2e383e',GradientType=0 );
+        color: white;
+        font-weight: bold;
+        text-shadow: 0px 1px 2px black;
+        box-shadow: 0px 3px 8px -4px black; }
+    .hw-grid .hw-grid-row > div {
+      flex: 1.5;
+      border-right: 1px solid #eee;
+      text-align: center;
+      padding: 5px;
+      font-size: 15px; }
+      .hw-grid .hw-grid-row > div:last-child {
+        border-right: 0; }
+
+.hw-client-contact-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center; }
+  .hw-client-contact-row > svg {
+    color: var(--color-primary);
+    filter: drop-shadow(-2px 2px 0px white);
+    font-size: 18px;
+    cursor: pointer; }
+    .hw-client-contact-row > svg:hover {
+      transform: scale(1.05); }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+.hw-login-root {
+  width: 300px;
+  min-height: 323px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
+  @media screen and (max-width: 500px) {
+    .hw-login-root {
+      min-height: 300px; } }
+
+.hw-login-forgot-password {
+  margin-top: -15px;
+  text-align: right; }
+  .hw-login-forgot-password a {
+    cursor: pointer;
+    font-size: 9px;
+    color: #2e383ee0;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.6px; }
+    .hw-login-forgot-password a:hover, .hw-login-forgot-password a:focus {
+      text-decoration: none;
+      transform: scale(1.9); }
+
+.hw-login-form-button {
+  margin-top: 15px;
+  text-align: center; }
+
+.hw-registration-recaptcha {
+  margin: 0 auto;
+  max-width: 304px;
+  text-align: center; }
+
+.hw-component-div {
+  display: flex;
+  justify-content: space-around;
+  width: 100%; }
+  .hw-component-div .hw-component {
+    display: inline-flex;
+    width: 48%; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*hw colors and shadows start */
+/*hw input start*/
+/*button constants end*/
+/*@mixin default-application-gradient{
+  background: #6d6e6d;
+  background: -moz-linear-gradient(top,  #55656b 0%, #2e383ee0 100%);
+  background: -webkit-linear-gradient(top, #55656b 0%,#2e383ee0 100%);
+  background: linear-gradient(to bottom,  #55656b 0%,#2e383ee0 100%);
+}*/
+.hw-client-dashboard-root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto; }
+
+.hw-client-form-root {
+  max-width: 650px;
+  padding: 20px;
+  margin-top: 5px;
+  max-height: 100%; }
+  @media screen and (max-width: 500px) {
+    .hw-client-form-root.shadow-lg {
+      box-shadow: none; } }
+  @media screen and (max-width: 500px) {
+    .hw-client-form-root {
+      padding: 10px;
+      margin-top: 5px;
+      max-height: 100%; }
+      .hw-client-form-root.shadow-lg {
+        box-shadow: none !important; } }
+
+.hw-client-address-form-root {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%; }
+  .hw-client-address-form-root .hw-client-address-title {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    text-align: left;
+    flex: 1;
+    padding: 0px 15px 8px 15px;
+    font-size: 14px;
+    color: var(--color-primary-font); }
+    .hw-client-address-form-root .hw-client-address-title > span {
+      min-width: 60px;
+      margin-right: 35px;
+      border-bottom: 1px solid #eee;
+      box-shadow: 0px 2px 2px -3px black;
+      color: rgba(17, 17, 17, 0.7);
+      font-size: 12px;
+      text-transform: uppercase; }
+    .hw-client-address-form-root .hw-client-address-title > button {
+      margin-left: 15px; }
+    .hw-client-address-form-root .hw-client-address-title.hw-client-address-title-contact {
+      padding: 0px 2px 2px 12px; }
+    .hw-client-address-form-root .hw-client-address-title .hw-help-text {
+      color: #2e383ee0;
+      position: absolute;
+      right: 20px;
+      font-size: 9px;
+      top: 11px; }
+  .hw-client-address-form-root .hw-client-address-row {
+    position: relative; }
+  .hw-client-address-form-root .hw-client-address-form-delete-icon {
+    position: absolute;
+    top: 45px;
+    bottom: 0;
+    right: -4px;
+    z-index: 50;
+    cursor: pointer; }
+    .hw-client-address-form-root .hw-client-address-form-delete-icon > svg {
+      color: var(--color-danger);
+      font-size: 24px; }
+  .hw-client-address-form-root .hw-client-contact-grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 15px;
+    font-weight: 500;
+    color: var(--color-primary-font); }
+    .hw-client-address-form-root .hw-client-contact-grid .hw-client-contact-grid-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+      border: 1px solid #eee;
+      line-height: 1.5; }
+      .hw-client-address-form-root .hw-client-contact-grid .hw-client-contact-grid-row:nth-child(odd) {
+        background-color: rgba(222, 235, 241, 0.19); }
+        .hw-client-address-form-root .hw-client-contact-grid .hw-client-contact-grid-row:nth-child(odd):hover {
+          background-color: rgba(222, 235, 241, 0.19);
+          cursor: pointer; }
+      .hw-client-address-form-root .hw-client-contact-grid .hw-client-contact-grid-row:hover {
+        background-color: #fbfbfb;
+        cursor: pointer; }
+      .hw-client-address-form-root .hw-client-contact-grid .hw-client-contact-grid-row.hw-grid-header-color {
+        border: 1px solid #ced4da;
+        border-radius: 3px; }
+        .hw-client-address-form-root .hw-client-contact-grid .hw-client-contact-grid-row.hw-grid-header-color.error {
+          border-color: var(--color-error); }
+        .hw-client-address-form-root .hw-client-contact-grid .hw-client-contact-grid-row.hw-grid-header-color > div {
+          background: #202e35;
+          background: -moz-linear-gradient(top, rgba(88, 99, 105, 0.88) 30%, #202e35 67%);
+          background: -webkit-linear-gradient(top, rgba(86, 97, 103, 0.88) 30%, #283036 67%);
+          background: linear-gradient(to bottom, rgba(85, 95, 101, 0.88) 27%, #222a30 67%);
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3f4c6b', endColorstr='#2e383e',GradientType=0 );
+          color: white;
+          font-weight: bold;
+          text-shadow: 0px 1px 2px black;
+          box-shadow: 0px 3px 8px -4px black; }
+      .hw-client-address-form-root .hw-client-contact-grid .hw-client-contact-grid-row > div {
+        flex: 1.5;
+        border-right: 1px solid #eee;
+        text-align: center;
+        padding: 5px;
+        font-size: 15px; }
+        .hw-client-address-form-root .hw-client-contact-grid .hw-client-contact-grid-row > div:nth-child(3) {
+          border-right: 0;
+          flex: 0.5; }
+  .hw-client-address-form-root .hw-client-contact-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center; }
+    .hw-client-address-form-root .hw-client-contact-row > svg {
+      color: var(--color-primary);
+      filter: drop-shadow(-2px 2px 0px white);
+      font-size: 18px;
+      cursor: pointer; }
+      .hw-client-address-form-root .hw-client-contact-row > svg:hover {
+        transform: scale(1.05); }
+
+.hw-client-form-add-contact-form {
+  min-width: 400px;
+  max-width: 600px;
+  padding-top: 5%; }
+  @media screen and (max-width: 500px) {
+    .hw-client-form-add-contact-form {
+      min-width: 100%; } }
+  .hw-client-form-add-contact-form .hw-client-form-buttons {
+    margin: 15px 0 20px; }
+
+.hw-client-form-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0 10px; }
+  .hw-client-form-buttons > button:not(:last-child) {
+    margin-right: 15px; }
+
+.row {
+  padding: 0; }
+
+.hw-form-forgot--change-password-root {
+  max-width: 350px;
+  min-width: 300px; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*hw colors and shadows start */
+/*hw input start*/
+/*button constants end*/
+/*@mixin default-application-gradient{
+  background: #6d6e6d;
+  background: -moz-linear-gradient(top,  #55656b 0%, #2e383ee0 100%);
+  background: -webkit-linear-gradient(top, #55656b 0%,#2e383ee0 100%);
+  background: linear-gradient(to bottom,  #55656b 0%,#2e383ee0 100%);
+}*/
+.hw-form-success-verification-root {
+  background: white;
+  background: -moz-linear-gradient(top, white 0%, #f6f6f6 47%, #ededed 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, white), color-stop(47%, #f6f6f6), color-stop(100%, #ededed));
+  background: -webkit-linear-gradient(top, white 0%, #f6f6f6 47%, #ededed 100%);
+  background: -o-linear-gradient(top, white 0%, #f6f6f6 47%, #ededed 100%);
+  background: -ms-linear-gradient(top, white 0%, #f6f6f6 47%, #ededed 100%);
+  background: linear-gradient(to bottom, white 0%, #f6f6f6 47%, #ededed 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=0 );
+  -webkit-box-shadow: 0 8px 6px -6px #555, 2px 0px 4px -1px #999,-2px 0px 4px -1px #999;
+  -moz-box-shadow: 0 8px 6px -6px #555, 2px 0px 4px -1px #999,-2px 0px 4px -1px #999;
+  box-shadow: 0 8px 6px -6px #555, 2px 0px 4px -1px #999,-2px 0px 4px -1px #999;
+  max-width: 400px;
+  min-width: 300px;
+  max-height: 100%;
+  width: 100%;
+  padding: 20px;
+  position: relative;
+  border: 1px solid #eeee;
+  border-radius: 3px; }
+  .hw-form-success-verification-root .hw-success-verification-logo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    max-width: 50px;
+    opacity: 0.4; }
+  .hw-form-success-verification-root .hw-verified-logo {
+    color: var(--color-success);
+    text-align: center;
+    opacity: 0.4; }
+    .hw-form-success-verification-root .hw-verified-logo > svg {
+      font-size: 90px; }
+  .hw-form-success-verification-root .hw-success-verification-text {
+    margin-top: 10px;
+    display: block;
+    width: 100%;
+    padding: 0px 20px 0px;
+    white-space: pre-line;
+    font-size: 11px; }
+  .hw-form-success-verification-root .hw-success-verification-button {
+    margin: 10px auto 5px;
+    text-align: center; }
+    .hw-form-success-verification-root .hw-success-verification-button .hw-button-root {
+      text-decoration: none; }
+      .hw-form-success-verification-root .hw-success-verification-button .hw-button-root:hover {
+        text-decoration: none; }
+  .hw-form-success-verification-root .hw-verify-alternative {
+    margin-top: 15px;
+    font-size: 13px;
+    color: var(--color-help-text); }
+    .hw-form-success-verification-root .hw-verify-alternative .hw-verify-alternative-link {
+      color: var(--color-primary);
+      text-shadow: 0px 0px 1px #0000008a; }
+  @media screen and (max-width: 500px) {
+    .hw-form-success-verification-root {
+      max-width: 400px;
+      min-width: 300px; } }
+
+.hw-account-form-root {
+  max-width: 400px;
+  min-width: 300px; }
+  .hw-account-form-root .hw-paper-body {
+    padding: 26px 10px 10px; }
+  .hw-account-form-root .hw-account-form-buttons {
+    margin: 25px auto 0px;
+    text-align: center; }
+    .hw-account-form-root .hw-account-form-buttons > button:first-child {
+      margin-right: 15px; }
+
+.hw-items-form-root {
+  max-width: 650px;
+  margin-top: 20px;
+  padding-top: 20px;
+  height: auto; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+:root.hw-theme-basic-blue {
+  --color-primary: rgba(3, 52, 78, 0.85);
+  --color-primary-font: #2e383ee0;
+  --color-secondary: rgba(5, 85, 127, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(17, 17, 17, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(3, 29, 110, 0.6);
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%;
+  --linear-gradient-primary: rgba(29, 63, 126, 0.8) 0%, #1e5799 10%, #2768b2 50%, #1c417d 99%, rgba(30, 87, 153, 0.8) 100%; }
+
+:root.hw-theme-basic-green {
+  --color-primary: rgba(24, 66, 38, 0.85);
+  --color-primary-font: #101c06;
+  --color-secondary: rgba(38, 103, 60, 0.85);
+  --color-success: #278943;
+  --color-info: #1892a8;
+  --color-danger: #57181e;
+  --color-error: #b52025;
+  --color-error-background: rgba(181, 32, 37, 0.08);
+  --color-help-text: rgba(16, 28, 6, 0.7);
+  --color-disabled: rgba(192, 192, 192, 0.48);
+  --prefix-icon-color: rgba(24, 90, 38, 0.6);
+  --linear-gradient-primary: rgba(24, 66, 38, 0.8) 0%, #195639 10%, #226752 50%, #174221 99%, rgba(25, 86, 57, 0.8) 100%;
+  --linear-gradient-blue: rgba(5, 85, 127, 0.85) 0%, rgba(4, 68, 103, 0.85) 10%, rgba(3, 52, 78, 0.85) 100%; }
+
+/*hw colors and shadows start */
+/*hw input start*/
+/*button constants end*/
+/*@mixin default-application-gradient{
+  background: #6d6e6d;
+  background: -moz-linear-gradient(top,  #55656b 0%, #2e383ee0 100%);
+  background: -webkit-linear-gradient(top, #55656b 0%,#2e383ee0 100%);
+  background: linear-gradient(to bottom,  #55656b 0%,#2e383ee0 100%);
+}*/
+.hw-grid .hw-grid-row > div {
+  padding: 4px;
+  flex: 0.8; }
+  .hw-grid .hw-grid-row > div:first-child {
+    flex: 0.3; }
+  .hw-grid .hw-grid-row > div:nth-child(2) {
+    flex: 1.2; }
+  .hw-grid .hw-grid-row > div:nth-child(4) {
+    flex: 0.5; }
+.hw-grid .hw-grid-row.hw-sale-tb-row > div {
+  flex: 0.8; }
+  .hw-grid .hw-grid-row.hw-sale-tb-row > div:first-child {
+    flex: 0.3; }
+  .hw-grid .hw-grid-row.hw-sale-tb-row > div:nth-child(2) {
+    flex: 0.3; }
+  .hw-grid .hw-grid-row.hw-sale-tb-row > div:nth-child(3) {
+    flex: 1.2; }
+  .hw-grid .hw-grid-row.hw-sale-tb-row > div:nth-child(5) {
+    flex: 0.5; }
+.hw-grid .hw-grid-row.hw-grid-header > div {
+  position: relative; }
+.hw-grid .hw-grid-row.hw-grid-header .hw-grid-header-icon {
+  position: absolute;
+  left: 4px; }
+  .hw-grid .hw-grid-row.hw-grid-header .hw-grid-header-icon > svg {
+    font-size: 14px; }
+
+.hw-sale-table-root .hw-grid .hw-grid-row {
+  line-height: 2;
+  position: relative; }
+  .hw-sale-table-root .hw-grid .hw-grid-row .hw-sale-table-delete-row {
+    flex: 0;
+    position: absolute;
+    left: -20px; }
+    .hw-sale-table-root .hw-grid .hw-grid-row .hw-sale-table-delete-row > svg {
+      font-size: 20px;
+      color: var(--color-danger); }
+
+.hw-change-quantity-component-root {
+  max-width: 400px; }
+
+.icon-hover:hover {
+  transform: scale(1.3);
+  cursor: pointer; }
+
+.opacity-5 {
+  opacity: 0.5; }
+
+.opacity-6 {
+  opacity: 0.6; }
+
+.opacity-7 {
+  opacity: 0.7; }
+
+.textShadow-white {
+  text-shadow: 0px 1px 1px white; }
+
+.textShadow-black {
+  text-shadow: 0px 1px 1px black; }
+
+.fontSize-10 {
+  font-size: 10px; }
+
+.fontSize-11 {
+  font-size: 11px; }
+
+.fontSize-12 {
+  font-size: 12px; }
+
+.fontSize-13 {
+  font-size: 13px; }
+
+.fontSize-18 {
+  font-size: 18px; }
+
+.fontSize-14 {
+  font-size: 14px; }
+
+.fontSize-20 {
+  font-size: 20px; }
+
+.fontSize-24 {
+  font-size: 24px; }
+
+.fontSize-26 {
+  font-size: 26px; }
+
+.text-upper {
+  text-transform: uppercase; }
+
+.tableHeader-gradient {
+  background: #202e35;
+  background: -moz-linear-gradient(top, rgba(88, 99, 105, 0.88) 30%, #202e35 67%);
+  background: -webkit-linear-gradient(top, rgba(86, 97, 103, 0.88) 30%, #283036 67%);
+  background: linear-gradient(to bottom, rgba(85, 95, 101, 0.88) 27%, #222a30 67%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3f4c6b', endColorstr='#2e383e',GradientType=0 );
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  letter-spacing: 0.4px;
+  font-weight: 500; }
+
+.table-body {
+  max-height: 650px;
+  overflow-y: auto; }
+
+.color-gray {
+  color: var(--color-primary-font); }
+
+.color-white {
+  color: white; }
+
+.color-danger {
+  color: var(--color-danger); }
+
+.color-primary {
+  color: var(--color-primary); }
+
+.row-odd {
+  background-color: rgba(222, 235, 241, 0.19); }
+
+.fontWeight-300 {
+  font-weight: 300; }
+
+.fontWeight-400 {
+  font-weight: 400; }
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; }
+
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,19 @@
+
+.hw-account-form-root {
+  max-width: 400px;
+  min-width: 300px;
+
+  .hw-paper-body {
+    padding: 26px 10px 10px;
+  }
+
+  .hw-account-form-buttons {
+    margin: 25px auto 0px;
+    text-align: center;
+    > button:first-child {
+      margin-right: 15px;
+    }
+  }
+}
+
+
