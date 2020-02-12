@@ -1,0 +1,46 @@
+.hw-input-text-float-root {
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.41;
+  position: relative;
+  border: 1px solid red;
+}
+.hw-input-text-float-root .hw-input-text-float {
+  border: 0px;
+  border-bottom: 2px solid #2879ac;
+  box-shadow: 0px 0px 0px transparent;
+  outline: none;
+  margin: 16.8px 0px 1px 12px;
+}
+.hw-input-text-float-root .hw-input-text-float:focus {
+  border-bottom-color: #143f5a;
+  box-shadow: 0px 3px 2px -2px #777;
+}
+.hw-input-text-float-root .hw-input-label-float {
+  opacity: 0.9;
+  text-shadow: 0.5px 0px 0.5px #444;
+  position: absolute;
+  z-index: 1;
+  transition: all 0.5s;
+  transform: translate(12px, 12px) scale(1);
+}
+.hw-input-text-float-root .hw-input-label-float.focused {
+  transform: translate(12px, 0px) scale(0.75);
+}
+.hw-input-text-float-root .hw-input-help-error-text-float {
+  font-size: 11.2px;
+  opacity: 0.8;
+  margin: 2px 0px 2px 16px;
+  overflow: hidden;
+}
+.hw-input-text-float-root.error .hw-input-help-error-text-float,
+.hw-input-text-float-root.error .hw-input-label-float {
+  color: #8a181c;
+}
+.hw-input-text-float-root.error .hw-input-text-float {
+  color: #b52025;
+  border-bottom-color: #8a181c;
+}
+
+/*# sourceMappingURL=input-text-float.css.map */

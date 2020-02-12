@@ -1,0 +1,65 @@
+
+@import 'hw-themes';
+@import 'hw-constants';
+
+
+.hw-label {
+  color: theme-var( $--color-primary-font);
+  font-size: $c-font-label-size;
+  padding: 0 0 2px 2px;
+  font-weight: bold;
+  margin: 0;
+  display: flex;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+
+.hw-help-text{
+  font-size: calc( #{$c-font-size} *0.6);
+  line-height: 1.3;
+  padding: 2px 0px 1px 8px;
+  overflow: hidden;
+  color: #2e383ee0;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  font-weight: 500;
+
+}
+
+
+.full-width {
+  width: 100%;
+}
+
+
+.error {
+  color: theme-var($--color-error)
+}
+
+.readOnly {
+  * {
+    cursor: default;
+    color: theme-var($--color-disabled);
+    opacity:1;
+  }
+}
+
+.disabled {
+  cursor: not-allowed;
+  color: theme-var($--color-disabled);
+  opacity:1;
+  * {
+    cursor: not-allowed;
+    color: theme-var($--color-disabled);
+    opacity:1;
+  }
+}
+
+
+
+.hw-focus {
+  box-shadow: 0 0 0 1px theme-var($--color-primary);
+  outline: none;
+}
+
